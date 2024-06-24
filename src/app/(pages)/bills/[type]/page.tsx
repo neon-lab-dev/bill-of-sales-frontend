@@ -2,13 +2,19 @@ import Hero from "@/components/Hero";
 import { TypesOfBills } from "@/components/TypesOfBills";
 import React from "react";
 
-const HomePage = () => {
+type Props = {
+  params: {
+    type: string;
+  };
+};
+
+const BillPage = ({ params: { type } }: Props) => {
   return (
     <div>
       <Hero />
-      <TypesOfBills />
+      <TypesOfBills type={type} />
     </div>
   );
 };
 
-export default HomePage;
+export default BillPage;

@@ -27,7 +27,7 @@ const Hero = () => {
             </div>
             <div className="h-[9px] w-[181px] rounded-sm bg-blue-400/25" />
           </div>
-          <p className="text-base leading-[175%] text-black/75">
+          <p className="text-base leading-[175%] text-black/75 max-w-[671px]">
             A bill of sale represents a receipt for an exchange of goods between
             two (2) parties, buyer and seller. The buyer offers cash or trade to
             a seller for personal property with the most popular being vehicles.
