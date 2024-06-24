@@ -17,25 +17,25 @@ const HeroForm = () => {
         Get Your Bill State-wise
       </span>
       <div className="flex flex-col gap-2 w-full">
-        <div className="border border-[#A9C3D5] w-full rounded-xl bg-[#517DC5] text-white flex items-center p-4 gap-2">
+        <div className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center p-4 gap-2">
           <Image src={ICONS.search} alt="search" width={24} height={24} />
           <input
             type="text"
-            className="w-full bg-[#517DC5] outline-none border-none"
+            className="w-full bg-blue-400 outline-none border-none"
           />
         </div>
         <div className="flex items-center gap-2 w-full">
           {CITIES.map((city) => (
             <button
               key={city}
-              className="bg-[#D9E7FF] text-[#142D55] py-2 px-3 rounded-xl"
+              className="bg-blue-100 text-blue-600 py-2 px-3 rounded-xl"
             >
               {city}
             </button>
           ))}
         </div>
       </div>
-      <button className="border border-[#A9C3D5] w-full rounded-xl bg-[#517DC5] text-white flex items-center p-4 gap-2">
+      <button className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center p-4 gap-2">
         <Image src={ICONS.billType} alt="search" width={24} height={24} />
         <span>All Bill Type</span>
         <Image

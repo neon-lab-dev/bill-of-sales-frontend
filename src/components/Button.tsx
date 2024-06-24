@@ -9,9 +9,9 @@ const classNames = {
   default: "",
   variants: {
     secondary:
-      "bg-[#E5EFFF] px-4 py-3.5 text-[#142D55] text-base font-600 leading-[150%] rounded-xl",
+      "bg-blue-50 px-4 py-3.5 text-blue-600 text-base font-600 leading-[150%] rounded-xl",
     primary:
-      "flex items-center gap-2 px-5 py-4 rounded-md bg-[#3E6FBF] min-w-[180px]",
+      "flex items-center gap-2 px-5 py-4 rounded-md bg-primary min-w-[180px]",
   },
 } as const;
 

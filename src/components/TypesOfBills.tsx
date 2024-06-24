@@ -48,6 +48,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
   return (
     <div className="wrapper max-width m-auto py-20 w-full">
       <div className="flex gap-6">
+        {/* list of bills */}
         <div className="flex flex-col pr-6 w-[382px] bg-white h-fit pb-12 rounded-md">
           {BILLS.map((bill) => {
             const decodedBill = decodeURI(type.replace("-", "/"));
@@ -60,7 +61,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 className={twMerge(
                   "w-full flex justify-between px-6 py-4",
                   isActive
-                    ? "bg-[#3E6FBF] text-white rounded-lg"
+                    ? "bg-primary text-white rounded-lg"
                     : "border-black/10 border-b text-black/85"
                 )}
               >
@@ -79,7 +80,8 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
           })}
         </div>
         <div className="flex-grow flex-col flex gap-4 bg-white rounded-2xl">
-          <div className="bg-[#D9E7FF] rounded-2xl p-5 flex flex-col gap-5">
+          {/* bill preview */}
+          <div className="bg-blue-100 rounded-2xl p-5 flex flex-col gap-5">
             <Image
               src={IMAGES.preview}
               alt="preview"
@@ -120,8 +122,8 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
               <span className="text-black/75 text-lg font-600">
                 To download the bill select your state
               </span>
-              <div className="flex border items-center justify-between rounded-md border-[#A9A9A9]/80 px-3 py-3.5 flex-grow">
-                <span className="text-[#404040]/85">Select your state</span>
+              <div className="flex border items-center justify-between rounded-md border-gray-300/80 px-3 py-3.5 flex-grow">
+                <span className="text-gray-400/85">Select your state</span>
                 <Image
                   src={ICONS.chevronRight}
                   alt="chevron-down"
@@ -131,6 +133,8 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 />
               </div>
             </div>
+
+            {/* cta buttons to download */}
             <div className="flex items-center gap-6 ">
               {CTA_BUTTONS.map(({ label, img }) => (
                 <Button variant="primary" key={label}>
@@ -139,7 +143,9 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 </Button>
               ))}
             </div>
-            <hr className="bg-[#C6C6C6]" />
+            <hr className="bg-gray-200" />
+
+            {/* desc of bill */}
             <div className="text-black/70 max-w-[824px]">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora,
               repellat! Necessitatibus asperiores placeat molestias aliquid

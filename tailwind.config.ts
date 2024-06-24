@@ -15,13 +15,21 @@ const config: Config = {
         primary: "#3E6FBF",
         background: "#F0F6FF",
         secondary: "#E0ECFF",
-        gray: {
-          100: "#CBCBCB",
-          50: "#E3E3E3",
-        },
         blue: {
-          400: "#B2CFFF",
-          500: "#142D55",
+          50: "#E5EFFF", // Lightest Blue
+          100: "#D9E7FF", // Lighter Blue
+          200: "#B2CFFF", // Light Blue
+          300: "#A9C3D5", // Sky Gray Blue
+          400: "#517DC5", // Light Blue
+          500: "#3E6FBF", // Blue
+          600: "#142D55", // Dark Blue
+        },
+        gray: {
+          50: "#E3E3E3", // Lightest Gray
+          100: "#CBCBCB", // Lighter Gray
+          200: "#C6C6C6", // Light Gray
+          300: "#A9A9A9", // Dark Gray
+          400: "#404040", // Darker Gray
         },
       },
       fontWeight: {
