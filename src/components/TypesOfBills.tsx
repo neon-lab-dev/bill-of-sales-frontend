@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import Button from "./Button";
 
 const BILLS = [
   "Aircraft",
@@ -47,7 +48,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
   return (
     <div className="wrapper max-width m-auto py-20 w-full">
       <div className="flex gap-6">
-        <div className="flex flex-col pr-6 w-[382px] bg-white h-fit">
+        <div className="flex flex-col pr-6 w-[382px] bg-white h-fit pb-12 rounded-md">
           {BILLS.map((bill) => {
             const decodedBill = decodeURI(type.replace("-", "/"));
             const isActive = bill === decodedBill;
@@ -130,15 +131,12 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 />
               </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 ">
               {CTA_BUTTONS.map(({ label, img }) => (
-                <button
-                  key={label}
-                  className="flex items-center gap-2 px-5 py-4 rounded-md bg-[#3E6FBF] min-w-[180px]"
-                >
+                <Button variant="primary" key={label}>
                   <Image src={img} alt={label} width={24} height={24} />
                   <span className="text-base font-600 text-white">{label}</span>
-                </button>
+                </Button>
               ))}
             </div>
             <hr className="bg-[#C6C6C6]" />

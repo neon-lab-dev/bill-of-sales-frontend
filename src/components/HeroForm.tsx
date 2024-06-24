@@ -1,6 +1,7 @@
 import { ICONS } from "@/assets";
 import Image from "next/image";
 import React from "react";
+import Button from "./Button";
 
 const CITIES = ["Alabama", "Alaska", "Arizona"];
 
@@ -45,9 +46,9 @@ const HeroForm = () => {
           className="ml-auto"
         />
       </button>
-      <button className="bg-[#E5EFFF] px-4 py-3.5 text-[#142D55] text-base font-600 leading-[150%] w-full rounded-xl">
+      <Button variant="secondary" className="w-full">
         View All
-      </button>
+      </Button>
     </div>
   );
 };
