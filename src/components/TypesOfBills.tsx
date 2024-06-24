@@ -5,7 +5,7 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import Button from "./Button";
 
-const BILLS = [
+export const BILLS = [
   "Aircraft",
   "Automobile / Vehicle",
   "ATV",
