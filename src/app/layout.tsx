@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-background">
         <Header />
-        <main className="mt-[72px] md:mt-[80px] wrapper">{children}</main>
+        <main className="mt-[72px] md:mt-[80px]">{children}</main>
         <Footer />
       </body>
     </html>

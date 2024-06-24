@@ -19,6 +19,10 @@ const config: Config = {
           100: "#CBCBCB",
           50: "#E3E3E3",
         },
+        blue: {
+          400: "#B2CFFF",
+          500: "#142D55",
+        },
       },
       fontWeight: {
         100: "100",

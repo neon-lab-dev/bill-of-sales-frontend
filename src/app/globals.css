@@ -13,5 +13,5 @@
 }
 
 .max-width {
-  @apply max-w-[144px] mx-auto;
+  @apply max-w-[1440px] mx-auto;
 }

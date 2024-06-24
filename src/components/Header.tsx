@@ -31,7 +31,7 @@ const NAV_LINKS = [
 const Header = () => {
   const path = usePathname();
   return (
-    <header className="h-[72px] md:h-[80px] w-screen bg-primary">
+    <header className="h-[72px] md:h-[80px] w-screen bg-primary fixed inset-0">
       <div className="wrapper flex items-center justify-between h-full w-full">
         <Link href="/">
           <Image
