@@ -32,7 +32,7 @@ const Header = () => {
   const path = usePathname();
   return (
     <header className="h-[72px] md:h-[80px] w-screen bg-primary fixed inset-0">
-      <div className="wrapper flex items-center justify-between h-full w-full">
+      <div className="wrapper flex items-center justify-between h-full max-width w-full">
         <Link href="/">
           <Image
             src={ICONS.logo}
