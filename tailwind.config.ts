@@ -17,6 +17,7 @@ const config: Config = {
         secondary: "#E0ECFF",
         gray: {
           100: "#CBCBCB",
+          50: "#E3E3E3",
         },
       },
       fontWeight: {
