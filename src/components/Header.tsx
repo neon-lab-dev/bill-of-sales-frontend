@@ -1,0 +1,73 @@
+"use client";
+import { ICONS } from "@/assets";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
+
+const NAV_LINKS = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Boat",
+    href: "/boat",
+  },
+  {
+    label: "Firearm",
+    href: "/firearm",
+  },
+  {
+    label: "General",
+    href: "/general",
+  },
+  {
+    label: "Vehicle",
+    href: "/vehicle",
+  },
+];
+
+const Header = () => {
+  const path = usePathname();
+  return (
+    <header className="h-[72px] md:h-[80px] w-screen bg-primary">
+      <div className="wrapper flex items-center justify-between h-full w-full">
+        <Link href="/">
+          <Image
+            src={ICONS.logo}
+            alt="bill of sales"
+            height={41}
+            width={287}
+            placeholder="blur"
+            quality={100}
+            className="w-[200px] h-auto lg:h-[36px] lg:w-[251px] xl:h-[40px] xl:w-[287px]"
+          />
+        </Link>
+        <nav className="gap-6 lg:gap-12 xl:gap-[75px] items-center text-white text-base leading-[125%] font-500 hidden md:flex">
+          {NAV_LINKS.map(({ label, href }) => (
+            <div className="relative">
+              <Link key={label} href={href} className="px-2 py-1">
+                {label}
+              </Link>
+              {path === href && (
+                <div className="h-1 w-full bg-gray-100 rounded-sm absolute top-10" />
+              )}
+            </div>
+          ))}
+        </nav>
+        <button className="md:hidden">
+          <Image
+            src={ICONS.menu}
+            alt="menu"
+            height={36}
+            width={36}
+            className="w-6 h-6 sm:h-9 sm:w-9 "
+          />
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
