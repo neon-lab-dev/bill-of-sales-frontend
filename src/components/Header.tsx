@@ -46,7 +46,7 @@ const Header = () => {
         </Link>
         <nav className="gap-6 lg:gap-12 xl:gap-[75px] items-center text-white text-base leading-[125%] font-500 hidden md:flex">
           {NAV_LINKS.map(({ label, href }) => (
-            <div className="relative">
+            <div className="relative" key={href}>
               <Link key={label} href={href} className="px-2 py-1">
                 {label}
               </Link>
