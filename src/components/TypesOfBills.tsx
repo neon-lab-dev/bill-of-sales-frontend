@@ -57,16 +57,16 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
   ];
 
   return (
-    <div className="wrapper max-width m-auto py-20 w-full flex flex-col gap-20">
+    <div className="wrapper max-width m-auto py-16 xl:py-20 w-full flex flex-col gap-12 xl:gap-20">
       <div className="flex flex-col gap-6">
-        <h3 className="text-gray-500 text-[56px] leading-[85%] font-700">
+        <h3 className="text-gray-500 text-[42px] xl:text-[56px] leading-[85%] font-700 text-center xl:text-left">
           All Type of Bills
         </h3>
-        <div className="h-[9px] w-[181px] bg-gray-600/35 rounded " />
+        <div className="h-[9px] w-[181px] bg-gray-600/35 rounded hidden xl:block" />
       </div>
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-col xl:flex-row">
         {/* list of bills */}
-        <div className="flex flex-col pr-6 w-[382px] bg-white h-fit pb-12 rounded-md">
+        <div className="flex xl:flex-col flex-row pr-6 xl:w-[382px] xl:min-w-[322px] xl:bg-white h-fit pb-12 rounded-md overflow-scroll w-full gap-7 xl:gap-0 ">
           {BILLS.map((bill) => {
             const decodedBill = decodeURI(type.replace("-", "/"));
             const isActive = bill === decodedBill;
@@ -76,13 +76,13 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 scroll={false}
                 href={`/bills/${encodeURI(bill.replace("/", "-"))}`}
                 className={twMerge(
-                  "w-full flex justify-between px-6 py-4",
+                  "w-full min-w-[222px] flex justify-between items-center px-6 py-2 xl:py-4 bg-white xl:bg-transparent rounded-full xl:rounded-none",
                   isActive
-                    ? "bg-primary text-white rounded-lg"
-                    : "border-black/10 border-b text-black/85"
+                    ? "bg-primary xl:bg-primary text-white rounded-full xl:rounded-lg"
+                    : "border-black/10 xl:border-b text-black/85"
                 )}
               >
-                <span className="font-500 text-base leading-[120%]">
+                <span className="font-500 text-base leading-[120%] m-auto xl:m-0">
                   {bill}
                 </span>
                 <Image
@@ -90,7 +90,10 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                   alt="chevron-right"
                   height={24}
                   width={24}
-                  className={isActive ? "invert" : ""}
+                  className={twMerge(
+                    isActive ? "invert" : "",
+                    "hidden xl:block"
+                  )}
                 />
               </Link>
             );
@@ -136,10 +139,10 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
               role="button"
               className="flex justify-between gap-6 items-center"
             >
-              <span className="text-black/75 text-lg font-600">
+              <span className="text-black/75 text-sm xl:text-lg font-600">
                 To download the bill select your state
               </span>
-              <div className="flex border items-center justify-between rounded-md border-gray-300/80 px-3 py-3.5 flex-grow">
+              <div className="flex border items-center text-sm xl:text-base justify-between rounded-md border-gray-300/80 px-3 py-3.5 flex-grow">
                 <span className="text-gray-400/85">Select your state</span>
                 <Image
                   src={ICONS.chevronRight}
@@ -152,7 +155,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
             </div>
 
             {/* cta buttons to download */}
-            <div className="flex items-center gap-6 ">
+            <div className="flex items-center gap-6 flex-wrap">
               {CTA_BUTTONS.map(({ label, img }) => (
                 <Button variant="primary" key={label}>
                   <Image src={img} alt={label} width={24} height={24} />

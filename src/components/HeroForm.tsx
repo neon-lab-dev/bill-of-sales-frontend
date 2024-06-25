@@ -11,17 +11,23 @@ const HeroForm = () => {
       style={{
         boxShadow: "0px 4px 80px 0px rgba(0, 0, 0, 0.05)",
       }}
-      className="w-[400px] bg-primary rounded-2xl px-6 py-8 h-full flex items-center justify-center flex-col gap-8"
+      className="w-full sm:w-[600px] xl:w-[400px] bg-primary rounded-2xl px-10 xl:px-6 py-12 xl:py-8 h-full flex items-center justify-center flex-col gap-[54px] xl:gap-8"
     >
-      <span className="text-white/90 leading-[120%] text-xl font-500">
+      <span className="text-white/90 leading-[120%] text-[28px] xl:text-xl font-500">
         Get Your Bill State-wise
       </span>
-      <div className="flex flex-col gap-2 w-full">
-        <div className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center p-4 gap-2">
-          <Image src={ICONS.search} alt="search" width={24} height={24} />
+      <div className="flex flex-col gap-6 xl:gap-2 w-full">
+        <div className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center px-[30px] py-[24px] xl:px-4 xl:py-4 gap-2">
+          <Image
+            src={ICONS.search}
+            alt="search"
+            width={24}
+            height={24}
+            className="h-[27px] w-[27px] xl:h-[24px] xl:w-[24px]"
+          />
           <input
             type="text"
-            className="w-full bg-blue-400 outline-none border-none"
+            className="w-full bg-blue-400 outline-none border-none text-[22px] xl:text-base"
           />
         </div>
         <div className="flex items-center gap-2 w-full">
@@ -35,15 +41,21 @@ const HeroForm = () => {
           ))}
         </div>
       </div>
-      <button className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center p-4 gap-2">
-        <Image src={ICONS.billType} alt="search" width={24} height={24} />
-        <span>All Bill Type</span>
+      <button className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center px-[30px] py-[24px] xl:px-4 xl:py-4 gap-2">
+        <Image
+          src={ICONS.billType}
+          alt="search"
+          width={24}
+          height={24}
+          className="h-[27px] w-[27px] xl:h-[24px] xl:w-[24px]"
+        />
+        <span className=" text-[22px] xl:text-base">All Bill Type</span>
         <Image
           src={ICONS.chevronDown}
           alt="search"
           width={24}
           height={24}
-          className="ml-auto"
+          className="ml-auto h-[27px] w-[27px] xl:h-[24px] xl:w-[24px]"
         />
       </button>
       <Button variant="secondary" className="w-full">
