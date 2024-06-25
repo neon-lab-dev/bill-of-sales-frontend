@@ -57,7 +57,13 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
   ];
 
   return (
-    <div className="wrapper max-width m-auto py-20 w-full">
+    <div className="wrapper max-width m-auto py-20 w-full flex flex-col gap-20">
+      <div className="flex flex-col gap-6">
+        <h3 className="text-gray-500 text-[56px] leading-[85%] font-700">
+          All Type of Bills
+        </h3>
+        <div className="h-[9px] w-[181px] bg-gray-600/35 rounded " />
+      </div>
       <div className="flex gap-6">
         {/* list of bills */}
         <div className="flex flex-col pr-6 w-[382px] bg-white h-fit pb-12 rounded-md">

@@ -30,6 +30,8 @@ const config: Config = {
           200: "#C6C6C6", // Light Gray
           300: "#A9A9A9", // Dark Gray
           400: "#404040", // Darker Gray
+          500: "#333134",
+          600: "#363436",
         },
       },
       fontWeight: {
