@@ -12,6 +12,17 @@ export const BILLS = [
   "Generic",
   "Boat / Vessel",
   "Cat / Kitten",
+  "Dog / Puppy",
+  "Equipment Bill of Sale",
+  "Firearm / Gun",
+  "Livestock",
+  "Horse",
+  "Jet Ski",
+  "Mobile Home",
+  "Motorcycle",
+  "RV (Recreational Vehicle)",
+  "Snowmobile",
+  "Trailer",
 ];
 
 type Props = {
