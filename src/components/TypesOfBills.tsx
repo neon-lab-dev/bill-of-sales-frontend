@@ -62,7 +62,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
       </div>
       <div className="flex gap-6 flex-col xl:flex-row">
         {/* list of bills */}
-        <div className="flex xl:flex-col flex-row pr-6 xl:w-[382px] xl:min-w-[322px] xl:bg-white h-fit pb-12 rounded-md overflow-scroll w-full gap-7 xl:gap-0 ">
+        <div className="flex xl:flex-col flex-row pr-6 xl:w-[382px] xl:min-w-[322px] xl:bg-white h-fit pb-12 rounded-md overflow-scroll xl:overflow-hidden w-full gap-7 xl:gap-0 ">
           {BILLS.map((bill) => {
             const decodedBill = decodeURI(type.replace("-", "/"));
             const isActive = bill === decodedBill;
