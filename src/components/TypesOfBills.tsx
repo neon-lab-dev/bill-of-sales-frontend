@@ -47,10 +47,6 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
       img: ICONS.pdf,
     },
     {
-      label: "Email PDF",
-      img: ICONS.pdf,
-    },
-    {
       label: "Fill Now",
       img: ICONS.pdf,
     },
