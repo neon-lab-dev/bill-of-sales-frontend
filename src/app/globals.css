@@ -9,7 +9,7 @@
 }
 
 .wrapper {
-  @apply px-6 sm:px-12 md:px-14 xl:px-24;
+  @apply px-[16px] sm:px-12 md:px-14 xl:px-24;
 }
 
 .max-width {

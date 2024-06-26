@@ -12,19 +12,19 @@ const NAV_LINKS = [
   },
   {
     label: "Boat",
-    href: "/boat",
+    href: "/templates/boat",
   },
   {
     label: "Firearm",
-    href: "/firearm",
+    href: "/templates/firearm",
   },
   {
     label: "General",
-    href: "/general",
+    href: "/templates/general",
   },
   {
     label: "Vehicle",
-    href: "/vehicle",
+    href: "/templates/vehicle",
   },
 ];
 
