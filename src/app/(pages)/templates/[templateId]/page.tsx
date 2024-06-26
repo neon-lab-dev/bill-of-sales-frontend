@@ -1,5 +1,6 @@
 import { ICONS, IMAGES } from "@/assets";
 import Button from "@/components/Button";
+import FormCard from "@/components/FormCard";
 import Image from "next/image";
 import React from "react";
 
@@ -120,6 +121,19 @@ const BillPage = ({ params: { templateId } }: Props) => {
               animi esse soluta reiciendis corporis, labore provident culpa
               beatae tempore vero ullam quibusdam similique maxime impedit
               maiores deleniti sed, nisi totam.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white w-full">
+        <div className="wrapper max-width py-[42px] w-full flex flex-col gap-4">
+          <h3 className="font-700 text-[22px] text-black/75">Related Forms</h3>
+          <div className="w-full overflow-hidden">
+            <div className="flex items-center gap-5 overflow-auto w-full">
+              <FormCard />
+              <FormCard />
+              <FormCard />
+              <FormCard />
             </div>
           </div>
         </div>
