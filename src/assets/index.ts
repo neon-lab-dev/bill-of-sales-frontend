@@ -7,8 +7,9 @@ import chevronDown from "@/assets/icons/chevron-down.svg";
 import chevronRight from "@/assets/icons/chevron-right.svg";
 import starFilled from "@/assets/icons/star-filled.svg";
 import star from "@/assets/icons/star.svg";
-import microsoftWord from "@/assets/icons/microsoft-word.png";
 
+import microsoftWord from "@/assets/icons/microsoft-word.png";
+import templatePreview from "@/assets/images/templatePreview.png";
 import preview from "@/assets/images/preview.png";
 
 export const ICONS = {
@@ -25,5 +26,6 @@ export const ICONS = {
 };
 
 export const IMAGES = {
+  templatePreview,
   preview,
 };

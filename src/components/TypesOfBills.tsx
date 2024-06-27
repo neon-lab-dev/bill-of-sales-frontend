@@ -110,11 +110,11 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                   {props.title}
                 </span>
                 <span className="text-sm text-black/70 leading-[200%]">
-                  ({props.downloads} Downloads)
+                  {/* ({props.downloads} Downloads) */}
                 </span>
               </div>
               <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
+                {/* {[...Array(5)].map((_, i) => (
                   <Image
                     key={i}
                     src={i < props.ratings ? ICONS.starFilled : ICONS.star}
@@ -126,7 +126,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 <span className="text-[#2B2C2F] text-lg font-700 leading-[155%] ml-3">
                   {props.ratings}
                 </span>
-                <span className="text-sm text-black/70 mt-[5px]">/5</span>
+                <span className="text-sm text-black/70 mt-[5px]">/5</span> */}
               </div>
             </div>
           </div>
