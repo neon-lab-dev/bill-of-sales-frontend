@@ -114,7 +114,7 @@ const HeroForm = () => {
             value={selectedCityInputValue}
             onChange={(e) => setSelectedCityInputValue(e.target.value)}
             type="text"
-            className="w-full bg-blue-400 outline-none border-none text-[22px] xl:text-base"
+            className="w-full bg-blue-400 outline-none border-none text-lg sm:text-[22px] xl:text-base"
           />
           {/* auto suggest */}
           {isSelectCityOpen && (
