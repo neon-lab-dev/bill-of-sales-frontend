@@ -11,19 +11,19 @@ const HeroForm = () => {
       style={{
         boxShadow: "0px 4px 80px 0px rgba(0, 0, 0, 0.05)",
       }}
-      className="w-full sm:w-[600px] xl:w-[400px] bg-primary rounded-2xl px-10 xl:px-6 py-12 xl:py-8 h-full flex items-center justify-center flex-col gap-[54px] xl:gap-8"
+      className="w-full sm:w-[600px] xl:w-[400px] bg-primary rounded-2xl px-6 md:px-10 xl:px-6 py-6 sm:py-12 xl:py-8 h-full flex items-center justify-center flex-col gap-6 md:gap-[54px] xl:gap-8"
     >
-      <span className="text-white/90 leading-[120%] text-[28px] xl:text-xl font-500">
+      <span className="text-white/90 leading-[120%] md:text-3xl text-xl sm:text-[28px] xl:text-xl font-500">
         Get Your Bill State-wise
       </span>
-      <div className="flex flex-col gap-6 xl:gap-2 w-full">
-        <div className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center px-[30px] py-[24px] xl:px-4 xl:py-4 gap-2">
+      <div className="flex flex-col gap-2 md:gap-6 xl:gap-2 w-full">
+        <div className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center px-4 py-2 sm:py-4 md:px-[30px] md:py-[24px] xl:px-4 xl:py-4 gap-2">
           <Image
             src={ICONS.search}
             alt="search"
             width={24}
             height={24}
-            className="h-[27px] w-[27px] xl:h-[24px] xl:w-[24px]"
+            className="h-[24px] w-[24px] md:h-[27px] md:w-[27px] xl:h-[24px] xl:w-[24px]"
           />
           <input
             type="text"
@@ -41,15 +41,15 @@ const HeroForm = () => {
           ))}
         </div>
       </div>
-      <button className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center px-[30px] py-[24px] xl:px-4 xl:py-4 gap-2">
+      <button className="border border-blue-300 w-full rounded-xl bg-blue-400 text-white flex items-center  px-4 py-2 sm:py-4 md:px-[30px] md:py-[24px] xl:px-4 xl:py-4 gap-2">
         <Image
           src={ICONS.billType}
           alt="search"
           width={24}
           height={24}
-          className="h-[27px] w-[27px] xl:h-[24px] xl:w-[24px]"
+          className="h-[24px] w-[24px] md:h-[27px] md:w-[27px] xl:h-[24px] xl:w-[24px]"
         />
-        <span className=" text-[22px] xl:text-base">All Bill Type</span>
+        <span className="text-lg sm:text-[22px] xl:text-base">All Bill Type</span>
         <Image
           src={ICONS.chevronDown}
           alt="search"

@@ -55,14 +55,14 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
   return (
     <div className="wrapper max-width m-auto py-16 xl:py-20 w-full flex flex-col gap-12 xl:gap-20">
       <div className="flex flex-col gap-6">
-        <h3 className="text-gray-500 text-[42px] xl:text-[56px] leading-[85%] font-700 text-center xl:text-left">
+        <h3 className="text-gray-500 text-3xl md:text-[42px] xl:text-[56px] leading-[85%] font-700 text-center xl:text-left">
           All Type of Bills
         </h3>
         <div className="h-[9px] w-[181px] bg-gray-600/35 rounded hidden xl:block" />
       </div>
       <div className="flex gap-6 flex-col xl:flex-row">
         {/* list of bills */}
-        <div className="flex xl:flex-col flex-row pr-6 xl:w-[382px] xl:min-w-[322px] xl:bg-white h-fit pb-12 rounded-md overflow-scroll xl:overflow-hidden w-full gap-7 xl:gap-0 ">
+        <div className="flex xl:flex-col flex-row pr-6 xl:w-[382px] xl:min-w-[322px] xl:bg-white h-fit pb-5 sm:pb-12 rounded-md overflow-scroll xl:overflow-hidden w-full gap-7 xl:gap-0 ">
           {BILLS.map((bill) => {
             const decodedBill = decodeURI(type.replace("-", "/"));
             const isActive = bill === decodedBill;
@@ -72,7 +72,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                 scroll={false}
                 href={`/bills/${encodeURI(bill.replace("/", "-"))}`}
                 className={twMerge(
-                  "w-full min-w-[222px] flex justify-between items-center px-6 py-2 xl:py-4 bg-white xl:bg-transparent rounded-full xl:rounded-none",
+                  "w-full min-w-fit sm:min-w-[222px] flex justify-between items-center px-6 py-2 xl:py-4 bg-white xl:bg-transparent rounded-full xl:rounded-none",
                   isActive
                     ? "bg-primary xl:bg-primary text-white rounded-full xl:rounded-lg"
                     : "border-black/10 xl:border-b text-black/85"
@@ -133,7 +133,7 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
           <div className="flex flex-col gap-8 py-9 px-6">
             <div
               role="button"
-              className="flex justify-between gap-6 items-center"
+              className="flex justify-between flex-col gap-3 sm:flex-row sm:gap-6 sm:items-center"
             >
               <span className="text-black/75 text-sm xl:text-lg font-600">
                 To download the bill select your state
