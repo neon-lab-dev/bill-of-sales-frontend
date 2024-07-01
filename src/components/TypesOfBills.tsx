@@ -95,26 +95,27 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
             );
           })}
         </div>
-        <div className="flex-grow flex-col flex gap-4 bg-white rounded-2xl">
-          {/* bill preview */}
-          <div className="bg-blue-100 rounded-2xl p-5 flex flex-col gap-5">
-            <Image
-              src={IMAGES.preview}
-              alt="preview"
-              className="w-full rounded-xl"
-              quality={100}
-            />
-            <div className="flex justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-600 text-black/75 leading-[155%]">
-                  {props.title}
-                </span>
-                <span className="text-sm text-black/70 leading-[200%]">
-                  {/* ({props.downloads} Downloads) */}
-                </span>
-              </div>
-              <div className="flex gap-1">
-                {/* {[...Array(5)].map((_, i) => (
+        <div className="flex-grow flex flex-col gap-3">
+          <div className="flex-col flex gap-4 bg-white rounded-2xl">
+            {/* bill preview */}
+            <div className="bg-blue-100 rounded-2xl p-5 flex flex-col gap-5">
+              <Image
+                src={IMAGES.preview}
+                alt="preview"
+                className="w-full rounded-xl"
+                quality={100}
+              />
+              <div className="flex justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-600 text-black/75 leading-[155%]">
+                    {props.title}
+                  </span>
+                  <span className="text-sm text-black/70 leading-[200%]">
+                    {/* ({props.downloads} Downloads) */}
+                  </span>
+                </div>
+                <div className="flex gap-1">
+                  {/* {[...Array(5)].map((_, i) => (
                   <Image
                     key={i}
                     src={i < props.ratings ? ICONS.starFilled : ICONS.star}
@@ -127,68 +128,104 @@ export const TypesOfBills = ({ type = BILLS[0] }: Props) => {
                   {props.ratings}
                 </span>
                 <span className="text-sm text-black/70 mt-[5px]">/5</span> */}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-8 py-9 px-6">
+              <div
+                role="button"
+                className="flex justify-between flex-col gap-3 sm:flex-row sm:gap-6 sm:items-center"
+              >
+                <span className="text-black/75 text-sm xl:text-lg font-600">
+                  To download the bill select your state
+                </span>
+                <div className="flex border items-center text-sm xl:text-base justify-between rounded-md border-gray-300/80 px-3 py-3.5 flex-grow">
+                  <span className="text-gray-400/85">Select your state</span>
+                  <Image
+                    src={ICONS.chevronRight}
+                    alt="chevron-down"
+                    width={24}
+                    height={24}
+                    className="rotate-90"
+                  />
+                </div>
+              </div>
+
+              {/* cta buttons to download */}
+              <div className="flex items-center gap-6 flex-wrap">
+                {CTA_BUTTONS.map(({ label, img }) => (
+                  <Button variant="primary" key={label}>
+                    <Image src={img} alt={label} width={24} height={24} />
+                    <span className="text-base font-600 text-white">
+                      {label}
+                    </span>
+                  </Button>
+                ))}
+              </div>
+              <hr className="bg-gray-200" />
+
+              {/* desc of bill */}
+              <div className="text-black/70 max-w-[824px]">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Tempora, repellat! Necessitatibus asperiores placeat molestias
+                aliquid officiis reprehenderit nostrum facere. Odio temporibus
+                quis aliquid maxime! Eius vero minima ducimus! Esse delectus
+                earum iure quas, reiciendis perferendis nihil porro atque
+                voluptatum aliquam ullam beatae similique ea doloremque qui
+                minus dolorem reprehenderit, perspiciatis blanditiis doloribus
+                possimus commodi. Et molestias quam aut, dolore non atque
+                eligendi maxime alias reprehenderit reiciendis corporis,
+                inventore quos quae vero dicta ullam provident, dolor earum
+                <br />
+                <br />
+                nam? Magni ipsa eveniet quia facilis cum, hic impedit minima
+                similique pariatur iure commodi doloribus necessitatibus!
+                Perspiciatis aliquam numquam non. Id vel laborum dignissimos
+                molestias quaerat pariatur tenetur asperiores labore nulla, a ea
+                nisi autem ex aut expedita! Provident rem error, impedit
+                voluptatibus consectetur totam laboriosam, consequatur quo
+                cumque facilis modi blanditiis hic id sequi ratione nesciunt
+                expedita? Quas, voluptatibus iste! Delectus et dicta quas ut,
+                voluptates earum repudiandae dolore, velit aperiam ratione fugit
+                odio consequatur deserunt? Minus consectetur voluptas incidunt
+                quo odit animi esse soluta reiciendis corporis, labore provident
+                culpa beatae tempore vero ullam quibusdam similique maxime
+                impedit maiores deleniti sed, nisi totam.
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-8 py-9 px-6">
-            <div
-              role="button"
-              className="flex justify-between flex-col gap-3 sm:flex-row sm:gap-6 sm:items-center"
-            >
-              <span className="text-black/75 text-sm xl:text-lg font-600">
-                To download the bill select your state
-              </span>
-              <div className="flex border items-center text-sm xl:text-base justify-between rounded-md border-gray-300/80 px-3 py-3.5 flex-grow">
-                <span className="text-gray-400/85">Select your state</span>
-                <Image
-                  src={ICONS.chevronRight}
-                  alt="chevron-down"
-                  width={24}
-                  height={24}
-                  className="rotate-90"
-                />
-              </div>
-            </div>
-
-            {/* cta buttons to download */}
-            <div className="flex items-center gap-6 flex-wrap">
-              {CTA_BUTTONS.map(({ label, img }) => (
-                <Button variant="primary" key={label}>
-                  <Image src={img} alt={label} width={24} height={24} />
-                  <span className="text-base font-600 text-white">{label}</span>
-                </Button>
-              ))}
-            </div>
-            <hr className="bg-gray-200" />
-
-            {/* desc of bill */}
-            <div className="text-black/70 max-w-[824px]">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora,
-              repellat! Necessitatibus asperiores placeat molestias aliquid
-              officiis reprehenderit nostrum facere. Odio temporibus quis
-              aliquid maxime! Eius vero minima ducimus! Esse delectus earum iure
-              quas, reiciendis perferendis nihil porro atque voluptatum aliquam
-              ullam beatae similique ea doloremque qui minus dolorem
-              reprehenderit, perspiciatis blanditiis doloribus possimus commodi.
-              Et molestias quam aut, dolore non atque eligendi maxime alias
-              reprehenderit reiciendis corporis, inventore quos quae vero dicta
-              ullam provident, dolor earum
-              <br />
-              <br />
-              nam? Magni ipsa eveniet quia facilis cum, hic impedit minima
-              similique pariatur iure commodi doloribus necessitatibus!
-              Perspiciatis aliquam numquam non. Id vel laborum dignissimos
-              molestias quaerat pariatur tenetur asperiores labore nulla, a ea
-              nisi autem ex aut expedita! Provident rem error, impedit
-              voluptatibus consectetur totam laboriosam, consequatur quo cumque
-              facilis modi blanditiis hic id sequi ratione nesciunt expedita?
-              Quas, voluptatibus iste! Delectus et dicta quas ut, voluptates
-              earum repudiandae dolore, velit aperiam ratione fugit odio
-              consequatur deserunt? Minus consectetur voluptas incidunt quo odit
-              animi esse soluta reiciendis corporis, labore provident culpa
-              beatae tempore vero ullam quibusdam similique maxime impedit
-              maiores deleniti sed, nisi totam.
-            </div>
+          <div className="bg-white w-full px-6 py-3 rounded-2xl flex flex-col gap-6">
+            <span className="text-black/85 text-lg font-600">3 responses</span>
+            <span className="text-black/85 text-2xl font-600">
+              Leave a reply
+            </span>
+            <form className="flex flex-col gap-4 w-full">
+              <input
+                type="text"
+                className="p-3 border border-gray-800 bg-gray-900 rounded-lg text-gray-100 outline-none focus:border-primary"
+                placeholder="Type your name here"
+              />
+              <input
+                type="email"
+                className="p-3 border border-gray-800 bg-gray-900 rounded-lg text-gray-100 outline-none focus:border-primary"
+                placeholder="Type your email here"
+              />
+              <input
+                type="url"
+                className="p-3 border border-gray-800 bg-gray-900 rounded-lg text-gray-100 outline-none focus:border-primary"
+                placeholder="Type your website here"
+              />
+              <textarea
+                className="p-3 min-h-40 border border-gray-800 bg-gray-900 rounded-lg text-gray-100 outline-none focus:border-primary"
+                placeholder="Type your message here"
+              />
+              <Button
+                variant="primary"
+                className="w-44 text-white flex items-center justify-center mb-5 xl:my-5"
+              >
+                Publish
+              </Button>
+            </form>
           </div>
         </div>
       </div>
