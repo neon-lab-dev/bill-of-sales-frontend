@@ -1,6 +1,6 @@
 import { ICONS, IMAGES } from "@/assets";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import Button from "./Button";
 import CommentForm from "./CommentForm";
 import DownloadYourBill from "./DownloadYourBill";
@@ -9,21 +9,6 @@ import { IForm } from "@/types/form";
 type Props = IForm;
 
 const BillPreview = (props: Props) => {
-  console.log(props);
-  const CTA_BUTTONS = [
-    {
-      label: "Word Version",
-      img: ICONS.microsoftWord,
-    },
-    {
-      label: "Adobe PDF",
-      img: ICONS.pdf,
-    },
-    {
-      label: "Fill Now",
-      img: ICONS.pdf,
-    },
-  ];
   return (
     <div className="flex-grow flex flex-col gap-3">
       <div className="flex-col flex gap-4 bg-white rounded-2xl">
@@ -62,7 +47,9 @@ const BillPreview = (props: Props) => {
           </div>
         </div>
         <div className="flex flex-col gap-8 py-9 px-6">
-          <DownloadYourBill forms={props.forms} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <DownloadYourBill forms={props.forms} />
+          </Suspense>
           <hr className="bg-gray-200" />
 
           {/* desc of bill */}
