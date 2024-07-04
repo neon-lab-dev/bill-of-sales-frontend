@@ -17,16 +17,6 @@ const DownloadYourBill = ({ forms }: Props) => {
   const states = forms?.map((state) => state.stateName);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedState, setSelectedState] = useState("");
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-
-  // get state form query
-  useEffect(() => {
-    const state = searchParams.get("state");
-    if (state && states?.includes(state as string)) {
-      setSelectedState(state as string);
-    }
-  }, [pathname]);
 
   const pdf = forms
     ?.find((f) => f.stateName === selectedState)
