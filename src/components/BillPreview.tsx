@@ -9,21 +9,6 @@ import { IForm } from "@/types/form";
 type Props = IForm;
 
 const BillPreview = (props: Props) => {
-  console.log(props);
-  const CTA_BUTTONS = [
-    {
-      label: "Word Version",
-      img: ICONS.microsoftWord,
-    },
-    {
-      label: "Adobe PDF",
-      img: ICONS.pdf,
-    },
-    {
-      label: "Fill Now",
-      img: ICONS.pdf,
-    },
-  ];
   return (
     <div className="flex-grow flex flex-col gap-3">
       <div className="flex-col flex gap-4 bg-white rounded-2xl">
