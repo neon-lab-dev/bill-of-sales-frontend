@@ -1,5 +1,4 @@
 import { ICONS, IMAGES } from "@/assets";
-import Button from "@/components/Button";
 import { IForm } from "@/types/form";
 import Image from "next/image";
 import React, { Suspense } from "react";
@@ -33,11 +32,14 @@ const TemplateDetails = ({ form }: Props) => {
         {/* bill preview */}
         <div className=" rounded-2xl p-2.5 md:p-5 flex flex-col gap-5">
           <Image
-            src={form.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
+            src={form.thumbnail[0]?.url ?? IMAGES.placeholder}
             alt="preview"
             className="w-full rounded-xl object-contain object-center"
             quality={100}
+            height={400}
+            width={824}
           />
+
           <div className="flex gap-8">
             {/* <div className="flex gap-1 items-center">
               <span className="text-sm md:text-lg mr-2"> Rating</span>

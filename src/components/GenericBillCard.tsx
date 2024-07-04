@@ -22,7 +22,7 @@ const GenericBillCard = ({ form }: Props) => {
       className="bg-white w-full flex-col lg:flex-row rounded-2xl flex gap-6 items-center p-4"
     >
       <Image
-        src={form?.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
+        src={form?.thumbnail[0].url ?? IMAGES.placeholder}
         height={300}
         width={300}
         alt=""

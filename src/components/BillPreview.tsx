@@ -15,10 +15,12 @@ const BillPreview = (props: Props) => {
         {/* bill preview */}
         <div className="bg-blue-100 rounded-2xl p-5 flex flex-col gap-5">
           <Image
-            src={props.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
+            src={props.thumbnail[0]?.url ?? IMAGES.placeholder}
             alt="preview"
             className="w-full rounded-xl max-h-[400px] object-cover object-center"
             quality={100}
+            height={400}
+            width={824}
           />
           <div className="flex justify-between">
             <div className="flex items-center gap-2">

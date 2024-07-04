@@ -23,9 +23,11 @@ const TemplateCard = ({ form }: Props) => {
       </h3>
       <Link href={`/templates/${form._id}`} className="group overflow-hidden">
         <Image
-          src={form?.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
+          src={form?.thumbnail[0].url ?? IMAGES.placeholder}
           alt=""
           className="h-[160px] sm:h-[323px] md:h-[290px] object-cover object-center w-full group-hover:scale-105 transition-all rounded-md"
+          height={400}
+          width={824}
         />
       </Link>
       <p className="text-xs text-black/65">

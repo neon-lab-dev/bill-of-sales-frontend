@@ -2,13 +2,17 @@ export interface IForm {
   _id: string;
   formName: string;
   description: string;
+  thumbnail: [
+    {
+      url: string;
+    }
+  ];
   metaDescription: string;
   forms: {
     _id: string;
     stateName: string;
     forms: {
       fileId: string;
-      thumbnailUrl?: string;
       url: string;
       _id: string;
     }[];
