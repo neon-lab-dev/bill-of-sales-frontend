@@ -2,8 +2,11 @@ import React from "react";
 import HeroForm from "./HeroForm";
 import Image from "next/image";
 import { ICONS } from "@/assets";
+import { getAllForms, getAllStates } from "@/services/forms";
 
-const Hero = () => {
+const Hero = async () => {
+  const states = await getAllStates();
+  const forms = await getAllForms();
   return (
     <div className="bg-secondary">
       <div className="max-width wrapper flex flex-col xl:flex-row items-center xl:items-start justify-between xl:gap-20 w-full">
@@ -35,7 +38,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="mb-[81px] xl:mb-[81px] xl:my-[81px]  ">
-          <HeroForm />
+          <HeroForm states={states} formNames={forms} />
         </div>
       </div>
     </div>

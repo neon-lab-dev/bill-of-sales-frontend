@@ -1,12 +1,17 @@
 import { IMAGES } from "@/assets";
+import { IForm } from "@/types/form";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const FormCard = () => {
+type Props = {
+  form: IForm;
+};
+
+const FormCard = ({ form }: Props) => {
   return (
     <Link
-      href={""}
+      href={`/templates/${form._id}`}
       className="flex flex-col items-center justify-center rounded-2xl border border-[#DEDEDE] p-4"
     >
       <Image
@@ -16,7 +21,7 @@ const FormCard = () => {
         quality={100}
       />
       <span className="text-sm md:text-lg font-700 text-black/75">
-        Alabama Boat Bill of Sale
+        {form.formName}
       </span>
     </Link>
   );

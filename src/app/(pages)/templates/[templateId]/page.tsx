@@ -1,6 +1,6 @@
 import GeneralBlankBillOfSale from "@/components/GeneralBlankBillOfSale";
-import RelatedForms from "@/components/RelatedForms";
 import TemplateDetails from "@/components/TemplateDetails";
+import { getAllForms, getFormById } from "@/services/forms";
 import React from "react";
 
 type Props = {
@@ -9,20 +9,26 @@ type Props = {
   };
 };
 
-const BillPage = ({ params: { templateId } }: Props) => {
+const BillPage = async ({ params: { templateId } }: Props) => {
+  const form = await getFormById(templateId);
+  if (!form)
+    return (
+      <div>
+        <h1>Form not found</h1>
+      </div>
+    );
   return (
     <div>
-      <TemplateDetails />
-      {/* <RelatedForms /> */}
-      <GeneralBlankBillOfSale />
+      <TemplateDetails form={form} />
     </div>
   );
 };
 
 export default BillPage;
 
-// todo nextjs static generation
-// export async function generateStaticParams() {
-//   let params = BILLS.map((type) => ({ params: { type } }));
-//   return params;
-// }
+// next js static generation
+export async function generateStaticParams() {
+  const bills = await getAllForms();
+  let params = bills.map((type) => ({ params: { type: type._id } }));
+  return params;
+}
