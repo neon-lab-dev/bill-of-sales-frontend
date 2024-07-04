@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
-import { BILLS, TypesOfBills } from "@/components/TypesOfBills";
+import { TypesOfBills } from "@/components/TypesOfBills";
+import { getAllForms } from "@/services/forms";
 import React from "react";
 
 type Props = {
@@ -19,8 +20,9 @@ const BillPage = ({ params: { type } }: Props) => {
 
 export default BillPage;
 
-// nextjs static generation
+// next js static generation
 export async function generateStaticParams() {
-  let params = BILLS.map((type) => ({ params: { type } }));
+  const billNames = await getAllForms();
+  let params = billNames.map((type) => ({ params: { type: type._id } }));
   return params;
 }

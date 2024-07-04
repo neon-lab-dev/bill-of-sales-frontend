@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TopLoader from "@/components/TopLoader";
+import { Toaster } from "sonner";
 
 const TITLE = "Bill of Sale";
 const DESCRIPTION =
@@ -39,6 +40,7 @@ export default function RootLayout({
         <main className="mt-[72px] md:mt-[80px]">{children}</main>
         <Footer />
         <TopLoader />
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );

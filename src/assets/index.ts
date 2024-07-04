@@ -11,6 +11,7 @@ import star from "@/assets/icons/star.svg";
 import microsoftWord from "@/assets/icons/microsoft-word.png";
 import templatePreview from "@/assets/images/templatePreview.png";
 import preview from "@/assets/images/preview.png";
+import placeholder from "@/assets/images/image.png";
 
 export const ICONS = {
   logo,
@@ -27,5 +28,6 @@ export const ICONS = {
 
 export const IMAGES = {
   templatePreview,
+  placeholder,
   preview,
 };

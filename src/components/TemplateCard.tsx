@@ -2,28 +2,32 @@ import { ICONS, IMAGES } from "@/assets";
 import Image from "next/image";
 import React from "react";
 import Button from "./Button";
+import { IForm } from "@/types/form";
+import Link from "next/link";
+import { handleDownloadFromUrl } from "@/helpers/handleDownloadFromUrl";
+import DownloadButtons from "./DownloadButtons";
 
-const TemplateCard = () => {
-  const CTA_BUTTONS = [
-    {
-      label: "Word Version",
-      img: ICONS.microsoftWord,
-    },
-    {
-      label: "Adobe PDF",
-      img: ICONS.pdf,
-    },
-  ];
+type Props = {
+  form: IForm;
+};
+
+const TemplateCard = ({ form }: Props) => {
+  const pdf = form.forms[0].forms.find((form) => form.url.endsWith(".pdf"));
+  const docx = form.forms[0].forms.find(
+    (form) => form.url.endsWith(".doc") || form.url.endsWith(".docx")
+  );
   return (
     <div className="w-full bg-white rounded-lg py-3 md:py-6 px-2 md:px-4 flex flex-col gap-3 md:gap-6">
       <h3 className="text-center text-sm md:text-[22px] font-700">
-        Alabama MVD Bill of Sale
+        {form.formName}
       </h3>
-      <Image
-        src={IMAGES.templatePreview}
-        alt=""
-        className="h-[160px] sm:h-[323px] md:h-[290px] object-cover object-top w-full"
-      />
+      <Link href={`/templates/${form._id}`} className="group overflow-hidden">
+        <Image
+          src={form?.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
+          alt=""
+          className="h-[160px] sm:h-[323px] md:h-[290px] object-cover object-center w-full group-hover:scale-105 transition-all rounded-md"
+        />
+      </Link>
       <p className="text-xs text-black/65">
         The Alabama abandoned vehicle bill of sale should be used under the
         following circumstances; If an entity has towed a vehicle and ha
@@ -33,22 +37,11 @@ const TemplateCard = () => {
         with a full description of the vehicle. Further written notice of the
         sale of the vehicle must be given…
       </p>
-      <div className="flex flex-wrap gap-5">
-        {CTA_BUTTONS.map(({ label, img }) => (
-          <Button variant="primary" key={label}>
-            <Image
-              src={img}
-              alt={label}
-              width={24}
-              height={24}
-              className="h-[14px] w-[14px] md:h-[24px] md:w-[24px] "
-            />
-            <span className="text-sm md:text-base font-600 text-white">
-              {label}
-            </span>
-          </Button>
-        ))}
-      </div>
+      <DownloadButtons
+        docxUrl={docx?.url}
+        pdfUrl={pdf?.url}
+        stateName={form.forms[0].stateName}
+      />
     </div>
   );
 };
