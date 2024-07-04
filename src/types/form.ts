@@ -8,6 +8,7 @@ export interface IForm {
     stateName: string;
     forms: {
       fileId: string;
+      thumbnailUrl?: string;
       url: string;
       _id: string;
     }[];

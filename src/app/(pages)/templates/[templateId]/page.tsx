@@ -1,4 +1,5 @@
 import GeneralBlankBillOfSale from "@/components/GeneralBlankBillOfSale";
+import NotFound from "@/components/NotFound";
 import TemplateDetails from "@/components/TemplateDetails";
 import { getAllForms, getFormById } from "@/services/forms";
 import React from "react";
@@ -11,12 +12,7 @@ type Props = {
 
 const BillPage = async ({ params: { templateId } }: Props) => {
   const form = await getFormById(templateId);
-  if (!form)
-    return (
-      <div>
-        <h1>Form not found</h1>
-      </div>
-    );
+  if (!form) return <NotFound />;
   return (
     <div>
       <TemplateDetails form={form} />

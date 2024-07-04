@@ -15,7 +15,7 @@ const FormCard = ({ form }: Props) => {
       className="flex flex-col items-center justify-center rounded-2xl border border-[#DEDEDE] p-4"
     >
       <Image
-        src={IMAGES.preview}
+        src={form?.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
         alt="preview"
         className="rounded-xl min-w-[214px] md:min-w-[270px] h-[300px] md:h-[388px] object-cover object-top"
         quality={100}

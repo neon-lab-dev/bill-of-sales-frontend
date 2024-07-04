@@ -30,9 +30,9 @@ const BillPreview = (props: Props) => {
         {/* bill preview */}
         <div className="bg-blue-100 rounded-2xl p-5 flex flex-col gap-5">
           <Image
-            src={IMAGES.preview} //todo
+            src={props.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
             alt="preview"
-            className="w-full rounded-xl"
+            className="w-full rounded-xl max-h-[400px] object-cover object-center"
             quality={100}
           />
           <div className="flex justify-between">

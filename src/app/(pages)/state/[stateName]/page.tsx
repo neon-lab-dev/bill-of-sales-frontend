@@ -1,6 +1,6 @@
 import TemplateCard from "@/components/TemplateCard";
 import { getAllStates, getFormsByState } from "@/services/forms";
-import PageNotFound from "../../[...not-found]/page";
+import NotFound from "@/components/NotFound";
 
 type Props = {
   params: {
@@ -11,7 +11,7 @@ type Props = {
 const TemplateByState = async ({ params: { stateName } }: Props) => {
   const forms = await getFormsByState(stateName);
 
-  if (!forms) return <PageNotFound />;
+  if (!forms) return <NotFound />;
   return (
     <div className="wrapper max-width">
       <div className="py-[31px] flex flex-col gap-5">

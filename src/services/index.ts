@@ -7,4 +7,5 @@ export const API_URL = {
   formsByState: URL + "/forms/state", // + stateName
 
   postComment: URL + "/postComment",
+  comments: URL + "/comment", // + postId
 } as const;

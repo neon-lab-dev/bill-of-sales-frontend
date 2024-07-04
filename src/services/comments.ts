@@ -22,3 +22,24 @@ export const handlePostComment = (
       });
   });
 };
+
+export interface ICommentResponse extends IComment {
+  _id: string;
+  comment: string;
+  createdAt: string;
+}
+
+export const handleGetAllCommentsByPostId = (
+  postId: string
+): Promise<ICommentResponse[]> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${API_URL.comments}/${postId}`)
+      .then((res) => {
+        resolve(res.data?.comment ?? []);
+      })
+      .catch((err) => {
+        reject(err?.response?.data?.message ?? "Failed to get comments");
+      });
+  });
+};

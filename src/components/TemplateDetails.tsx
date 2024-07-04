@@ -33,9 +33,9 @@ const TemplateDetails = ({ form }: Props) => {
         {/* bill preview */}
         <div className=" rounded-2xl p-2.5 md:p-5 flex flex-col gap-5">
           <Image
-            src={IMAGES.preview}
+            src={form.forms[0]?.forms[0]?.thumbnailUrl ?? IMAGES.placeholder}
             alt="preview"
-            className="w-full rounded-xl"
+            className="w-full rounded-xl object-contain object-center"
             quality={100}
           />
           <div className="flex gap-8">

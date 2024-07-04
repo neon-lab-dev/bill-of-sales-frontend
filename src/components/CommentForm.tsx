@@ -1,9 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { IComment } from "@/types/comment";
 import { toast } from "sonner";
-import { handlePostComment } from "@/services/comments";
+import {
+  ICommentResponse,
+  handleGetAllCommentsByPostId,
+  handlePostComment,
+} from "@/services/comments";
 
 type Props = {
   formId: string;
@@ -11,6 +15,8 @@ type Props = {
 
 const CommentForm = ({ formId }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState<ICommentResponse[]>([]);
   const [comment, setComment] = useState<IComment>({
     name: "",
     email: "",
@@ -18,6 +24,10 @@ const CommentForm = ({ formId }: Props) => {
     content: "",
     formId,
   });
+
+  useEffect(() => {
+    handleGetAllCommentsByPostId(formId).then((res) => setComments(res));
+  }, []);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,8 +63,46 @@ const CommentForm = ({ formId }: Props) => {
 
   return (
     <div className="bg-white w-full px-6 py-3 rounded-2xl flex flex-col gap-6">
-      <span className="text-black/85 text-lg font-600">3 responses</span>{" "}
-      {/* //todo: change to dynamic */}
+      <span className="text-black/85 text-lg font-600">
+        {comments.length} responses
+        {comments.length > 0 && (
+          <button
+            onClick={() => setShowComments((prev) => !prev)}
+            className="ml-4 text-gray-400"
+          >
+            {showComments ? "Hide comments" : "Show comments"}
+          </button>
+        )}
+      </span>{" "}
+      {showComments && (
+        <div className="flex flex-col gap-4">
+          {comments
+            .filter((_, i) => i < 3)
+            .map((c) => (
+              <div className="relative grid grid-cols-1 gap-4 p-4 mb-8 border border-gray-200/40 rounded-lg bg-white shadow">
+                <div className="relative flex gap-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                    className="relative rounded-lg -top-8 -mb-4 bg-white border border-gray-200/40 h-16 w-16"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div className="flex flex-col w-full">
+                    <div className="flex flex-row justify-between">
+                      <p className="relative text-lg whitespace-nowrap truncate overflow-hidden">
+                        {c.name}
+                      </p>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      {new Date(c.createdAt).toDateString()}
+                    </p>
+                  </div>
+                </div>
+                <p className="-mt-4 text-gray-500">{c.comment}</p>
+              </div>
+            ))}
+        </div>
+      )}
       <span className="text-black/85 text-2xl font-600">Leave a reply</span>
       <form onSubmit={onSubmit} className="flex flex-col gap-4 w-full">
         {[
