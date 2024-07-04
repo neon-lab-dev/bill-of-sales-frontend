@@ -1,6 +1,6 @@
 import { ICONS, IMAGES } from "@/assets";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import Button from "./Button";
 import CommentForm from "./CommentForm";
 import DownloadYourBill from "./DownloadYourBill";
@@ -47,7 +47,9 @@ const BillPreview = (props: Props) => {
           </div>
         </div>
         <div className="flex flex-col gap-8 py-9 px-6">
-          <DownloadYourBill forms={props.forms} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <DownloadYourBill forms={props.forms} />
+          </Suspense>
           <hr className="bg-gray-200" />
 
           {/* desc of bill */}

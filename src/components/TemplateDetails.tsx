@@ -2,7 +2,7 @@ import { ICONS, IMAGES } from "@/assets";
 import Button from "@/components/Button";
 import { IForm } from "@/types/form";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import DownloadYourBill from "./DownloadYourBill";
 
 type Props = {
@@ -67,7 +67,9 @@ const TemplateDetails = ({ form }: Props) => {
         </div>
         <div className="flex flex-col gap-8 px-6">
           {/* cta buttons to download */}
-          <DownloadYourBill forms={form.forms} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <DownloadYourBill forms={form.forms} />
+          </Suspense>
           <hr className="bg-gray-200" />
 
           {/* desc of bill */}
