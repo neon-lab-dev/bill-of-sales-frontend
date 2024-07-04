@@ -79,7 +79,10 @@ const CommentForm = ({ formId }: Props) => {
           {comments
             .filter((_, i) => i < 3)
             .map((c) => (
-              <div className="relative grid grid-cols-1 gap-4 p-4 mb-8 border border-gray-200/40 rounded-lg bg-white shadow">
+              <div
+                key={c._id}
+                className="relative grid grid-cols-1 gap-4 p-4 mb-8 border border-gray-200/40 rounded-lg bg-white shadow"
+              >
                 <div className="relative flex gap-4">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
