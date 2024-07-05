@@ -35,10 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-background overflow-x-hidden">
-        <Header />
+        <Header/>
         <main className="mt-[72px] md:mt-[80px]">{children}</main>
-        <Footer />
-        <TopLoader />
+        <TopLoader/>
+        <Footer/>
       </body>
     </html>
   );
