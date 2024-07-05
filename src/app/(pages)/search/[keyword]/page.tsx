@@ -2,7 +2,7 @@ import GeneralBlankBillOfSale from "@/components/GeneralBlankBillOfSale";
 import NotFound from "@/components/NotFound";
 import RelatedForms from "@/components/RelatedForms";
 import TemplateDetails from "@/components/TemplateDetails";
-import { getAllForms, getFormById, searchByFormName } from "@/services/forms";
+import { searchByFormName } from "@/services/forms";
 import React from "react";
 
 type Props = {
@@ -17,7 +17,7 @@ const BillPage = async ({ params: { keyword } }: Props) => {
   return (
     <div>
       <TemplateDetails form={forms[0]} />
-      {keyword.toLowerCase().includes("general") ? (
+      {forms.length > 1 && keyword.toLowerCase().includes("general") ? (
         <GeneralBlankBillOfSale forms={forms.filter((_, i) => i !== 0)} />
       ) : (
         <RelatedForms forms={forms.filter((_, i) => i !== 0)} />
