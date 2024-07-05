@@ -9,7 +9,7 @@ const Login = () => {
         <div className='flex h-full w-full overflow-hidden'>
             <div className=' flex flex-col w-1/2 p-[140px] bg-white'>
                 <Image src={ICONS.login} alt='logo' className='py-16 ml-28' />
-                <div class="relative mb-6 ml-16">
+                <div className="relative mb-6 ml-16">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <Image src={IMAGES.mail} alt='lock' className=''/>
                     </div>
