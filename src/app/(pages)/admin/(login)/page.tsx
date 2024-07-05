@@ -13,13 +13,13 @@ const Login = () => {
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <Image src={IMAGES.mail} alt='lock' className=''/>
                     </div>
-                    <input type="text" id="input-group-1" class=" bg-white text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] " placeholder="name@flowbite.com" />
+                    <input type="text" id="input-group-1" className=" bg-white text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] " placeholder="name@flowbite.com" />
                 </div>
                 <div class="relative mb-6 ml-16">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                         <Image src={IMAGES.lock} alt='lock'/>
                     </div>
-                    <input type="text" id="input-group-1" class=" bg-white text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] " placeholder="************" />
+                    <input type="text" id="input-group-1" className=" bg-white text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] " placeholder="************" />
                 </div>
                 <div className=' flex justify-center text-center ml-8'>
                     <button  className=' text-white bg-[#3E6FBF] p-4 rounded-xl ml-2 text-center w-[400px]'><span className=' text-center'><Link href="/admin/dashboard">Login</Link></span></button>
