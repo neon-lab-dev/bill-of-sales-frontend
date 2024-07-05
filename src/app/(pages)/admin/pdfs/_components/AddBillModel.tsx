@@ -82,19 +82,7 @@ const AddBillModel = () => {
                                 <input type="text" id="title" name="title" className=" bg-white border rounded w-full py-2 px-3 text-gray-700 leading-tight " />
                             </div>
 
-                            {/* Editor */}
-                            <div className="mb-4">
-                                <label htmlFor="editor" className="block text-black font-bold mb-2">Rich Text Editor</label>
-                                <ReactQuill
-                                    id="editor"
-                                    value={editorContent}
-                                    onChange={handleEditorChange}
-                                    theme="snow"
-                                    className='w-[700px]'
-                                    style={{ height: "100px" }}
-                                />
-                            </div>
-
+                           
                             {/* Button to submit */}
                             <div className="text-center mt-16">
                                 <Button className="bg-primary text-white px-4 py-1 rounded-lg">Submit</Button>

@@ -75,8 +75,13 @@ const TemplateDetails = ({ form }: Props) => {
           <hr className="bg-gray-200" />
 
           {/* desc of bill */}
-          <div className="text-black/70 text-sm md:text-base">
-            {form.description}
+          <div className="prose-sm prose-p:mb-0 prose-p:mt-0 prose-p:w-full w-full prose-thead:text-left prose-hr:mt-3 prose-hr:mb-3 prose-a:text-blue-600">
+            <div
+              className="w-full"
+              dangerouslySetInnerHTML={{
+                __html: form.description,
+              }}
+            />
           </div>
         </div>
       </div>
