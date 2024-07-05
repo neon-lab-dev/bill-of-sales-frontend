@@ -15,8 +15,8 @@ const Login = () => {
                     </div>
                     <input type="text" id="input-group-1" className=" bg-white text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] " placeholder="name@flowbite.com" />
                 </div>
-                <div class="relative mb-6 ml-16">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <div className="relative mb-6 ml-16">
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                         <Image src={IMAGES.lock} alt='lock'/>
                     </div>
                     <input type="text" id="input-group-1" className=" bg-white text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] " placeholder="************" />
