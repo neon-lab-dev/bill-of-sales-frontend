@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import AdminNavbar from '../_components/AdminNavbar'
 import AdminSiderbar from '../_components/AdminSiderbar'
 import Image from 'next/image'
@@ -27,14 +27,14 @@ const page = () => {
                                 <span className='w-[10px] text-[#7B809A]'>1.</span>
                                 <span className='w-[250px] text-[#7B809A]'>john@creative-tim.com</span>
                                 <span className='w-[240px] font-900'>John Michael</span>
-                                <p className='w-[500px] text-[#7B809A]'>"Very helpful resource for anyone needing a bill of sale form. The only downside is that the site could load a bit faster. Other than that, it's great."</p>
+                                <p className='w-[500px] text-[#7B809A]'>&quot;Very helpful resource for anyone needing a bill of sale form. The only downside is that the site could load a bit faster. Other than that, it&apos;s great.&quot;</p>
                             </div>
                             <hr className='mx-10' />
                             <div className=' flex justify-between py-4 px-10 text-center text-sm'>
                                 <span className='w-[10px] text-[#7B809A]'>2.</span>
                                 <span className='w-[250px] text-[#7B809A]'>john@creative-tim.com</span>
                                 <span className='w-[240px] font-900'>John Michael</span>
-                                <p className='w-[500px] text-[#7B809A]'>"Very helpful resource for anyone needing a bill of sale form. The only downside is that the site could load a bit faster. Other than that, it's great."</p>
+                                <p className='w-[500px] text-[#7B809A]'>&quot;Very helpful resource for anyone needing a bill of sale form. The only downside is that the site could load a bit faster. Other than that, it&apos;s great.&quot;</p>
                             </div>
                             <hr className='mx-10' />
                         </div>
