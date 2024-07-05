@@ -12,26 +12,26 @@ const NAV_LINKS = [
   },
   {
     label: "Boat",
-    href: "/templates/boat",
+    href: "/search/boat",
   },
   {
     label: "Firearm",
-    href: "/templates/firearm",
+    href: "/search/firearm",
   },
   {
     label: "General",
-    href: "/templates/general",
+    href: "/search/general",
   },
   {
     label: "Vehicle",
-    href: "/templates/vehicle",
+    href: "/search/vehicle",
   },
 ];
 
 const Header = () => {
   const path = usePathname();
   return (
-    <header className="h-[72px] md:h-[80px] w-screen bg-primary fixed inset-0">
+    <header className="h-[72px] z-50 md:h-[80px] w-screen bg-primary fixed inset-0">
       <div className="wrapper flex items-center justify-between h-full max-width w-full">
         <Link href="/">
           <Image

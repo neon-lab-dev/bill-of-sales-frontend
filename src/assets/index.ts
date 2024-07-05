@@ -33,6 +33,8 @@ import choosefile from "@/assets/icons/choose.svg"
 
 
 
+import placeholder from "@/assets/images/image.png";
+
 
 export const ICONS = {
   logo,
@@ -63,6 +65,7 @@ export const ICONS = {
 
 export const IMAGES = {
   templatePreview,
+  placeholder,
   preview,
   loginGroup,
   lock,
