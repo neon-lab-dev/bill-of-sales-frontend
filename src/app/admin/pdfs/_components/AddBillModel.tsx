@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import dynamic from 'next/dynamic'; // Import dynamic for async loading of the editor component
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,12 +11,12 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css'; // Import the styles
 
 const AddBillModel = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [editorContent, setEditorContent] = useState(''); // State to handle editor content
 
     // Function to handle file selection
-    const handleFileSelect = (e: { target: { files: any[]; }; }) => {
-        const file = e.target.files[0];
+    const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
         // Validate file type (only accept PDF)
         if (file && file.type === 'application/pdf') {
             setSelectedFile(file);
