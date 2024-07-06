@@ -25,3 +25,14 @@ export const handleGetMeService = async (): Promise<string> => {
       .catch((err) => reject(err?.response?.data?.message ?? "User not found"));
   });
 };
+
+export const handleLogoutService = async (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(API_URL.logout, {
+        withCredentials: true,
+      })
+      .then((res) => resolve(res.data?.message ?? "Logout successful"))
+      .catch((err) => reject(err?.response?.data?.message ?? "Logout failed"));
+  });
+};
