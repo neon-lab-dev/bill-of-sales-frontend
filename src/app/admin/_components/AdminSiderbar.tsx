@@ -1,9 +1,30 @@
-import { ICONS } from '@/assets'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+"use client";
+
+import { ICONS } from "@/assets";
+import { handleLogoutService } from "@/services/auth";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { toast } from "sonner";
 
 const AdminSiderbar = () => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+  const { mutate, isPending } = useMutation({
+    mutationFn: handleLogoutService,
+    onSuccess: (msg) => {
+      router.push("/");
+      toast.success(msg);
+      queryClient.invalidateQueries({
+        queryKey: ["user"],
+      });
+    },
+    onError: (err: string) => {
+      toast.error(err);
+    },
+  });
   return (
     <div className=' h-screen w-[260px] border-2px border-r-[#c1ced6] border-y-0 border-l-0 bg-[#fffdfd]'>
         <div className='flex flex-col py-10 gap-10'>
@@ -25,7 +46,7 @@ const AdminSiderbar = () => {
             </div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdminSiderbar
+export default AdminSiderbar;

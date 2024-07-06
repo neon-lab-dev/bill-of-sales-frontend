@@ -13,5 +13,8 @@ export const API_URL = {
   getAllComments: URL + "/getAllComments",
 
   login: URL + "/login",
+  logout: URL + "/logout",
   me: URL + "/me",
+
+  count: URL + "/count",
 } as const;

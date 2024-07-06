@@ -60,7 +60,6 @@ const PdfModel = ({ form, id }: Props) => {
                             >
                               {form.url}
                             </Link>
-                            <button>Delete</button>
                           </div>
                         ))
                       )}
