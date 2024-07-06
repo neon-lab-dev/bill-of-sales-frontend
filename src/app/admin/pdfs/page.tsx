@@ -48,8 +48,8 @@ const Page = () => {
         <AdminNavbar/>
         <div className="flex">
           <AdminSiderbar />
-          <div className="p-10 m-10 rounded-xl">
-            <div className=" flex flex-col w-[1100px] rounded-xl bg-white">
+          <div className="p-10 rounded-xl">
+            <div className=" flex flex-col  w-[1050px] rounded-xl bg-white">
               <div className=" bg-primary p-4 rounded-t-xl flex justify-between">
                 <form className="max-w-md ">
                   <label
@@ -91,7 +91,7 @@ const Page = () => {
                   <Link href="/admin/add-new-bill">Add New Bill</Link>
                 </button>
               </div>
-              <div className=" flex justify-between py-4 px-10 text-center text-[#7B809A] text-sm">
+              <div className=" flex justify-between py-4 px-10 text-center text-[#7B809A] flex-wrap text-sm">
                 <span className="w-[10px] ">Sno</span>
                 <span className="w-[250px]">ID</span>
                 <span className="w-[250px]">Name Of State</span>
