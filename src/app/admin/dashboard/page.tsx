@@ -11,7 +11,7 @@ const page = ( ) => {
     <div>
       <div className='flex'>
         <AdminSiderbar/>
-        <div className='p-6 w-[300px] h-[200px] shadow-xl m-10 rounded-xl bg-white'>
+        <div className='p-6 w-[320px] h-[200px] shadow-xl m-10 rounded-xl bg-white'>
           <div className='flex flex-col gap-2'>
             <div className='flex justify-between '>
               <Image src={ICONS.note} alt='' />
@@ -26,7 +26,7 @@ const page = ( ) => {
             </div>
           </div>
         </div>
-        <div className='p-6 w-[300px] h-[200px] shadow-xl m-10 rounded-xl bg-white'>
+        <div className='p-6 w-[320px] h-[200px] shadow-xl m-10 rounded-xl bg-white'>
           <div className='flex flex-col gap-2'>
             <div className='flex justify-between '>
               <Image src={ICONS.logo3} alt='' />
@@ -40,7 +40,7 @@ const page = ( ) => {
               <span className=' text-lg font-thin'>Just updated</span>
             </div>
           </div>
-        </div><div className='p-6 w-[300px] h-[200px] shadow-xl m-10 rounded-xl bg-white'>
+        </div><div className='p-6 w-[320px] h-[200px] shadow-xl m-10 rounded-xl bg-white'>
           <div className='flex flex-col gap-2'>
             <div className='flex justify-between '>
               <Image src={ICONS.wechat} alt='' />

@@ -1,46 +1,43 @@
-import type { Metadata } from "next";
+"use client"
 import "../globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import TopLoader from "@/components/TopLoader";
 import { Toaster } from "sonner";
 import { ReactQueryClientProvider } from "@/providers/ReactQueryClientProvider";
-
-const TITLE = "Bill of Sale";
-const DESCRIPTION =
-  "A bill of sale represents a receipt for an exchange of goods between two (2) parties, buyer and seller. The buyer offers cash or trade to a seller for personal property with the most popular being vehicles.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  icons: [
-    {
-      url: "pdf.png",
-    },
-  ],
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [
-      {
-        url: "bill-of-sale.png",
-      },
-    ],
-  },
-};
+import { useEffect, useState } from "react";
+import ScreenWarning from "./pdfs/_components/ScreenWarning";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsSmallScreen(width <= 1300);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <html lang="en">
       <ReactQueryClientProvider>
         <body className="bg-background overflow-x-hidden">
-          <main className="">{children}</main>
+        {isSmallScreen ? (
+        <div className='flex justify-center w-full h-screen'>
+          <ScreenWarning/>
+        </div>
+        ) : (
+          <div>
+             <main className="">{children}</main>
           <TopLoader />
           <Toaster richColors position="top-right" />
+          </div>
+        )}
         </body>
       </ReactQueryClientProvider>
     </html>

@@ -43,50 +43,57 @@ const Login = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex h-full w-full overflow-hidden"
+      className="flex h-full  w-full overflow-hidden"
     >
-      <div className=" flex flex-col w-1/2 p-[140px] bg-white">
-        <Image src={ICONS.login} alt="logo" className="py-16 ml-28" />
-        <div className="relative mb-6 ml-16">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <Image src={IMAGES.mail} alt="lock" className="" />
-          </div>
-          <input
-            type="email"
-            id="input-group-1"
-            className=" text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] "
-            placeholder="name@flowbite.com"
-            {...register("email", {
-              required: "Email is required",
-            })}
-          />
-          {errors.email && (
-            <span className="text-red-500">
-              {errors.email.message as string}
-            </span>
-          )}
+      <div className=" flex flex-col gap-6 w-1/2 pt-[200px] bg-white">
+        <div className=" flex justify-center">
+          <Image src={ICONS.login} alt="logo" className="py-8  w-[300px]" />
         </div>
-        <div className="relative mb-6 ml-16">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <Image src={IMAGES.lock} alt="lock" />
+        <div className=" flex justify-center">
+          <div className=" relative">
+            <div className="absolute inset-y-0 start-0 flex  items-center ps-3.5 pointer-events-none">
+              <Image src={IMAGES.mail} alt="lock" className="" />
+            </div>
+            <input
+              type="email"
+              id="input-group-1"
+              className=" text-lg rounded-lg block border w-[400px]  ps-10 p-2.5 placeholder:text-[#333333] "
+              placeholder="name@flowbite.com"
+              {...register("email", {
+                required: "Email is required",
+              })}
+            />
+            {errors.email && (
+              <span className="text-red-500">
+                {errors.email.message as string}
+              </span>
+            )}
           </div>
-          <input
-            type="password"
-            id="input-group-1"
-            className=" text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] "
-            placeholder="name@flowbite.com"
-            {...register("password", {
-              required: "Password is required",
-            })}
-          />
-          {errors.password && (
-            <span className="text-red-500">
-              {errors.password.message as string}
-            </span>
-          )}
         </div>
-        <div className=" flex justify-center text-center ml-8">
-          <button className=" text-white bg-[#3E6FBF] p-4 rounded-xl ml-2 text-center w-[400px]">
+        <div className="flex justify-center">
+          <div className="relative mb-6 ">
+            <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <Image src={IMAGES.lock} alt="lock" />
+            </div>
+            <input
+              type="password"
+              id="input-group-1"
+              className=" text-lg rounded-lg block border w-[400px] ps-10 p-2.5 placeholder:text-[#333333] "
+              placeholder="name@flowbite.com"
+              {...register("password", {
+                required: "Password is required",
+              })}
+            />
+            {errors.password && (
+              <span className="text-red-500">
+                {errors.password.message as string}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className=" flex  justify-center text-center ">
+          <button className=" text-white bg-[#3E6FBF] p-4 rounded-xl  text-center w-[400px]">
             <span className=" text-center">
               {isPending ? "Loading..." : "Login"}
             </span>
