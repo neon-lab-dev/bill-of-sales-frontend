@@ -10,7 +10,6 @@ const AdminNavbar = () => {
             <Image src={ICONS.logo} alt='' className='py-6 px-2 w-[250px]'/>
             </div>
             <div className='flex items-center gap-2'>
-            <Image src={ICONS.bell} alt=''/>
             <Image src={ICONS.profile} alt='' className=' rounded-full p-1'/>
             </div> 
         </div>
