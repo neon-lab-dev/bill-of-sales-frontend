@@ -4,7 +4,7 @@ import AdminSiderbar from '../_components/AdminSiderbar'
 import Image from 'next/image'
 import { ICONS, IMAGES } from '@/assets'
 import Link from 'next/link'
-import AddBillModel from '@/app/(pages)/admin/pdfs/_components/AddBillModel'
+import AddBillModel from '@/app/admin/pdfs/_components/AddBillModel'
 
 const page = () => {
     return (

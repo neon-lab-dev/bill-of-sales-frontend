@@ -9,6 +9,7 @@ import Link from 'next/link'
 const page = () => {
     return (
         <>
+            <AdminNavbar />
             <div>
                 <div className='flex'>
                     <AdminSiderbar />
@@ -42,7 +43,7 @@ const page = () => {
                                 <span className='w-[250px] font-900'>John Michael</span>
                                 <p className='w-[250px] text-[#7B809A]'>15</p>
                                 <div className='flex justify-center  gap-3 w-[250px]'>
-                                   <PdfModel/>
+                                    <PdfModel />
                                     <Image src={ICONS.bin} alt='' />
                                 </div>
                             </div>

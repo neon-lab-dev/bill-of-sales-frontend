@@ -29,6 +29,8 @@ import visibility from "@/assets/icons/visibility.svg"
 import bin from "@/assets/icons/delete.svg"
 import arrow_right from "@/assets/icons/arrow_right_alt.svg"
 import choosefile from "@/assets/icons/choose.svg"
+import house from "@/assets/icons/house.svg"
+
 
 
 
@@ -60,7 +62,8 @@ export const ICONS = {
   visibility,
   bin,
   arrow_right,
-  choosefile
+  choosefile,
+  house
 };
 
 export const IMAGES = {
