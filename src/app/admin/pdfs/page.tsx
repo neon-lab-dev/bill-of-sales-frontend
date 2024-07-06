@@ -48,8 +48,8 @@ const Page = () => {
         <AdminNavbar/>
         <div className="flex">
           <AdminSiderbar />
-          <div className="p-10 rounded-xl">
-            <div className=" flex flex-col  w-[1050px] rounded-xl bg-white">
+          <div className=" pl-10 py-10 rounded-xl">
+            <div className=" flex flex-col w-full rounded-xl bg-white">
               <div className=" bg-primary p-4 rounded-t-xl flex justify-between">
                 <form className="max-w-md ">
                   <label

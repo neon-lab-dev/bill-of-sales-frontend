@@ -23,7 +23,7 @@ const Page = () => {
       <div>
         <div className="flex">
           <AdminSiderbar />
-          <div className="p-10  rounded-xl">
+          <div className="py-10 pl-10  rounded-xl">
             <div className=" flex flex-col w-[1000px] rounded-xl bg-white">
               <div className=" bg-primary p-4 rounded-t-xl">
                 <span className=" font-700 text-white">All Comments</span>

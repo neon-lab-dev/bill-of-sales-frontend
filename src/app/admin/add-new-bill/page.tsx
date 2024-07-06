@@ -33,7 +33,7 @@ const Page = () => {
                 />
               </Link>
             </div>
-            <div className=" flex flex-col w-[1150px] rounded-xl bg-white">
+            <div className=" flex flex-col w-[1000px] rounded-xl bg-white">
               <div className=" bg-primary p-4 rounded-t-xl flex justify-between">
                 <span className=" text-xl p-2 text-white font-500">
                   Choose A Bill
