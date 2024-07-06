@@ -7,7 +7,7 @@ import { ICONS, IMAGES } from "@/assets";
 import { useQuery } from "@tanstack/react-query";
 import { handleGetCountService } from "@/services/count";
 
-const page = () => {
+const Dashboard = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["count"],
     queryFn: handleGetCountService,
@@ -75,4 +75,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Dashboard;
