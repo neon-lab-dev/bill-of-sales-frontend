@@ -1,18 +1,16 @@
 "use client";
-
 import React, { Children, useState } from "react";
 import AdminNavbar from "../_components/AdminNavbar";
 import AdminSiderbar from "../_components/AdminSiderbar";
 import Image from "next/image";
 import { ICONS, IMAGES } from "@/assets";
 import Link from "next/link";
-import AddBillModel from "@/app/admin/pdfs/_components/AddBillModel";
 import { useQuery } from "@tanstack/react-query";
 import { handleGetAllFormsService } from "@/services/forms";
 import AddNewBillModel from "./_components/AddNewBillModal";
 import AddStateModal from "./_components/AddStateModal";
 
-const page = () => {
+const Page = () => {
   const [value, setValue] = useState("");
   const { isLoading, data, isError } = useQuery({
     queryKey: ["forms", value],
@@ -114,4 +112,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Page;

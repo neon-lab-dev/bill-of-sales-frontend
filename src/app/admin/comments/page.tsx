@@ -9,7 +9,7 @@ import { handleGetAllCommentsService } from "@/services/comments";
 import { Loading } from "@/components/Loading";
 import SomeErrorOccurred from "@/components/SomeErrorOccurred";
 
-const page = () => {
+const Page = () => {
   const { isLoading, data, isError } = useQuery({
     queryKey: ["comments"],
     queryFn: handleGetAllCommentsService,
@@ -69,4 +69,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Page;

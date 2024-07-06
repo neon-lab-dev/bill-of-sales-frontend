@@ -16,7 +16,7 @@ import SomeErrorOccurred from "@/components/SomeErrorOccurred";
 import { Loading } from "@/components/Loading";
 import { toast } from "sonner";
 
-const page = () => {
+const Page = () => {
   const [value, setValue] = useState("");
   const queryClient = useQueryClient();
   const [deletingId, setDeletingId] = useState<string>("");
@@ -152,4 +152,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Page;

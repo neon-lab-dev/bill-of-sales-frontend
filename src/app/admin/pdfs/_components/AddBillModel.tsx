@@ -15,7 +15,7 @@ const AddBillModel = () => {
     const [editorContent, setEditorContent] = useState(''); // State to handle editor content
 
     // Function to handle file selection
-    const handleFileSelect = (e) => {
+    const handleFileSelect = (e: { target: { files: any[]; }; }) => {
         const file = e.target.files[0];
         // Validate file type (only accept PDF)
         if (file && file.type === 'application/pdf') {
@@ -26,7 +26,7 @@ const AddBillModel = () => {
     };
 
     // Function to handle editor content change
-    const handleEditorChange = (content) => {
+    const handleEditorChange = (content: React.SetStateAction<string>) => {
         setEditorContent(content);
     };
 
