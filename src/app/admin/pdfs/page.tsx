@@ -45,6 +45,7 @@ const page = () => {
   return (
     <>
       <div>
+        <AdminNavbar/>
         <div className="flex">
           <AdminSiderbar />
           <div className="p-10 m-10 rounded-xl">

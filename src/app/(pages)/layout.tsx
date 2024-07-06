@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TopLoader from "@/components/TopLoader";
@@ -40,7 +40,6 @@ export default function RootLayout({
         <body className="bg-background overflow-x-hidden">
           <Header />
           <main className="mt-[72px] md:mt-[80px]">{children}</main>
-
           <Footer />
           <TopLoader />
           <Toaster richColors position="top-right" />

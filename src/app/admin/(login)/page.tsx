@@ -26,7 +26,7 @@ const Login = () => {
         })
         .then(() => {
           toast.success(msg);
-          router.push("/admin");
+          router.push("/admin/dashboard");
         })
         .catch((err) => {
           toast.error(err);
