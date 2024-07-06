@@ -5,7 +5,13 @@ export const API_URL = {
   allFormNames: URL + "/forms/formName",
   allForms: URL + "/forms",
   formsByState: URL + "/forms/state", // + stateName
+  uploadForm: URL + "/uploadForm",
+  addState: URL + "/state",
 
   postComment: URL + "/postComment",
   comments: URL + "/comment", // + postId
+  getAllComments: URL + "/getAllComments",
+
+  login: URL + "/login",
+  me: URL + "/me",
 } as const;

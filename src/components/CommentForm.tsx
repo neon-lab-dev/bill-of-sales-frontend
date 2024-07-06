@@ -8,15 +8,15 @@ import {
   handleGetAllCommentsByPostId,
   handlePostComment,
 } from "@/services/comments";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 type Props = {
   formId: string;
 };
 
 const CommentForm = ({ formId }: Props) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const queryClient = useQueryClient();
   const [showComments, setShowComments] = useState(false);
-  const [comments, setComments] = useState<ICommentResponse[]>([]);
   const [comment, setComment] = useState<IComment>({
     name: "",
     email: "",
@@ -24,11 +24,30 @@ const CommentForm = ({ formId }: Props) => {
     content: "",
     formId,
   });
+  const { data } = useQuery({
+    queryKey: ["comments", formId],
+    queryFn: () => handleGetAllCommentsByPostId(formId),
+  });
 
-  useEffect(() => {
-    handleGetAllCommentsByPostId(formId).then((res) => setComments(res));
-  }, []);
-
+  const { mutate, isPending: isLoading } = useMutation({
+    mutationFn: handlePostComment,
+    onSuccess: (msg) => {
+      queryClient.invalidateQueries({
+        queryKey: ["comments"],
+      });
+      toast.success(msg);
+      setComment({
+        name: "",
+        email: "",
+        website: "",
+        content: "",
+        formId,
+      });
+    },
+    onError: (err: string) => {
+      toast.error(err);
+    },
+  });
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     for (const key in comment) {
@@ -41,31 +60,14 @@ const CommentForm = ({ formId }: Props) => {
         return;
       }
     }
-    setIsLoading(true);
-    handlePostComment(comment)
-      .then((res) => {
-        toast.success(res.message);
-        setComment({
-          name: "",
-          email: "",
-          website: "",
-          content: "",
-          formId,
-        });
-      })
-      .catch((err) => {
-        toast.error(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    mutate(comment);
   };
 
   return (
     <div className="bg-white w-full px-6 py-3 rounded-2xl flex flex-col gap-6">
       <span className="text-black/85 text-lg font-600">
-        {comments.length} responses
-        {comments.length > 0 && (
+        {data?.length ?? 0} responses
+        {data && data?.length > 0 && (
           <button
             onClick={() => setShowComments((prev) => !prev)}
             className="ml-4 text-gray-400"
@@ -76,34 +78,35 @@ const CommentForm = ({ formId }: Props) => {
       </span>{" "}
       {showComments && (
         <div className="flex flex-col gap-4">
-          {comments
-            .filter((_, i) => i < 3)
-            .map((c) => (
-              <div
-                key={c._id}
-                className="relative grid grid-cols-1 gap-4 p-4 mb-8 border border-gray-200/40 rounded-lg bg-white shadow"
-              >
-                <div className="relative flex gap-4">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
-                    className="relative rounded-lg -top-8 -mb-4 bg-white border border-gray-200/40 h-16 w-16"
-                    alt=""
-                    loading="lazy"
-                  />
-                  <div className="flex flex-col w-full">
-                    <div className="flex flex-row justify-between">
-                      <p className="relative text-lg whitespace-nowrap truncate overflow-hidden">
-                        {c.name}
+          {data &&
+            data
+              .filter((_, i) => i < 3)
+              .map((c) => (
+                <div
+                  key={c._id}
+                  className="relative grid grid-cols-1 gap-4 p-4 mb-8 border border-gray-200/40 rounded-lg bg-white shadow"
+                >
+                  <div className="relative flex gap-4">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                      className="relative rounded-lg -top-8 -mb-4 bg-white border border-gray-200/40 h-16 w-16"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <div className="flex flex-col w-full">
+                      <div className="flex flex-row justify-between">
+                        <p className="relative text-lg whitespace-nowrap truncate overflow-hidden">
+                          {c.name}
+                        </p>
+                      </div>
+                      <p className="text-gray-400 text-sm">
+                        {new Date(c.createdAt).toDateString()}
                       </p>
                     </div>
-                    <p className="text-gray-400 text-sm">
-                      {new Date(c.createdAt).toDateString()}
-                    </p>
                   </div>
+                  <p className="-mt-4 text-gray-500">{c.comment}</p>
                 </div>
-                <p className="-mt-4 text-gray-500">{c.comment}</p>
-              </div>
-            ))}
+              ))}
         </div>
       )}
       <span className="text-black/85 text-2xl font-600">Leave a reply</span>

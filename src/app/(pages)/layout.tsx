@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TopLoader from "@/components/TopLoader";
 import { Toaster } from "sonner";
+import { ReactQueryClientProvider } from "@/providers/ReactQueryClientProvider";
 
 const TITLE = "Bill of Sale";
 const DESCRIPTION =
@@ -35,13 +36,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-background overflow-x-hidden">
-        <Header />
-        <main className="mt-[72px] md:mt-[80px]">{children}</main>
-        <Footer />
-        <TopLoader />
-        <Toaster richColors position="top-right" />
-      </body>
+      <ReactQueryClientProvider>
+        <body className="bg-background overflow-x-hidden">
+          <Header />
+          <main className="mt-[72px] md:mt-[80px]">{children}</main>
+          <Footer />
+          <TopLoader />
+          <Toaster richColors position="top-right" />
+        </body>
+      </ReactQueryClientProvider>
     </html>
   );
 }

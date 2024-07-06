@@ -15,7 +15,7 @@ const BillPreview = (props: Props) => {
         {/* bill preview */}
         <div className="bg-blue-100 rounded-2xl p-5 flex flex-col gap-5">
           <Image
-            src={props.thumbnail[0]?.url ?? IMAGES.placeholder}
+            src={props.thumbnail ? props.thumbnail[0]?.url : IMAGES.placeholder}
             alt="preview"
             className="w-full rounded-xl max-h-[400px] object-cover object-center"
             quality={100}
@@ -55,7 +55,16 @@ const BillPreview = (props: Props) => {
           <hr className="bg-gray-200" />
 
           {/* desc of bill */}
-          <div className="text-black/70 max-w-[824px]">{props.description}</div>
+          <div className=" max-w-[824px]">
+            <div className="prose-sm prose-p:mb-0 prose-p:mt-0 prose-p:w-full w-full prose-thead:text-left prose-hr:mt-3 prose-hr:mb-3 prose-a:text-blue-600">
+              <div
+                className="w-full"
+                dangerouslySetInnerHTML={{
+                  __html: props.description,
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <CommentForm formId={props._id} />
