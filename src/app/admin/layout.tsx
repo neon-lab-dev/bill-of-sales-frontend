@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "../globals.css";
 import TopLoader from "@/components/TopLoader";
 import { Toaster } from "sonner";
@@ -19,27 +19,27 @@ export default function RootLayout({
       setIsSmallScreen(width <= 1300);
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <html lang="en">
-      <ReactQueryClientProvider>
-        <body className="bg-background overflow-x-hidden">
-        {isSmallScreen ? (
-        <div className='flex justify-center w-full h-screen'>
-          <ScreenWarning/>
-        </div>
-        ) : (
-          <div>
-             <main className="">{children}</main>
-          <TopLoader />
-          <Toaster richColors position="top-right" />
-          </div>
-        )}
-        </body>
-      </ReactQueryClientProvider>
+      <body className="bg-background overflow-x-hidden">
+        <ReactQueryClientProvider>
+          {isSmallScreen ? (
+            <div className="flex justify-center w-full h-screen">
+              <ScreenWarning />
+            </div>
+          ) : (
+            <div>
+              <main className="">{children}</main>
+              <TopLoader />
+              <Toaster richColors position="top-right" />
+            </div>
+          )}
+        </ReactQueryClientProvider>
+      </body>
     </html>
   );
 }

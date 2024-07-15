@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Children, useState } from "react";
+import React, { Children, useCallback, useEffect, useState } from "react";
 import AdminNavbar from "../_components/AdminNavbar";
 import AdminSiderbar from "../_components/AdminSiderbar";
 import Image from "next/image";
@@ -15,15 +15,28 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import SomeErrorOccurred from "@/components/SomeErrorOccurred";
 import { Loading } from "@/components/Loading";
 import { toast } from "sonner";
+import debounce from "@/helpers/debounce";
 
 const Page = () => {
   const [value, setValue] = useState("");
+  const [debouncedValue, setDebouncedValue] = useState("");
   const queryClient = useQueryClient();
   const [deletingId, setDeletingId] = useState<string>("");
   const { isLoading, data, isError } = useQuery({
-    queryKey: ["forms", value],
-    queryFn: () => handleGetAllFormsService(value),
+    queryKey: ["forms", debouncedValue],
+    queryFn: () => handleGetAllFormsService(debouncedValue),
   });
+
+  const debouncedSetKeyword = useCallback(
+    debounce((queryParams) => {
+      setDebouncedValue(queryParams);
+    }),
+    [] // dependencies
+  ); //callback to ensure that setSearchParams is not called on every render
+
+  useEffect(() => {
+    debouncedSetKeyword(value);
+  }, [value]);
 
   const { mutate, isPending } = useMutation({
     mutationFn: handleDeleteFormService,
@@ -45,7 +58,7 @@ const Page = () => {
   return (
     <>
       <div>
-        <AdminNavbar/>
+        <AdminNavbar />
         <div className="flex">
           <AdminSiderbar />
           <div className=" pl-10 py-10 rounded-xl">
@@ -79,7 +92,7 @@ const Page = () => {
                     <input
                       type="search"
                       id="default-search"
-                      className="block w-full p-4 ps-10 text-sm text-gray-900 border border-white rounded-lg bg-white"
+                      className="block w-full p-4 ps-10 text-sm text-black border border-white rounded-lg bg-white"
                       placeholder="Search by name"
                       required
                       value={value}
