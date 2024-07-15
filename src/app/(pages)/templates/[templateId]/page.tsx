@@ -23,8 +23,27 @@ const BillPage = async ({ params: { templateId } }: Props) => {
 export default BillPage;
 
 // next js static generation
-export async function generateStaticParams() {
-  const bills = await getAllForms();
-  let params = bills.map((type) => ({ params: { type: type._id } }));
-  return params;
-}
+// export async function generateStaticParams() {
+//   const bills = await getAllForms();
+//   let params = bills.map((type) => ({ params: { type: type._id } }));
+//   return params;
+// }
+
+export const generateMetadata = async ({ params: { templateId } }: Props) => {
+  const form = await getFormById(templateId);
+
+  if (!form) {
+    return {
+      title: "Bill of Sale Not Found",
+    };
+  }
+  return {
+    title: `${form.formName} Bill of Sale`,
+    description: form.metaDescription,
+    openGraph: {
+      title: `${form.formName} Bill of Sale`,
+      description: form.metaDescription,
+      images: [form.thumbnail[0].url],
+    },
+  };
+};

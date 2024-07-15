@@ -36,15 +36,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactQueryClientProvider>
-        <body className="bg-background overflow-x-hidden">
+      <body className="bg-background overflow-x-hidden">
+        <ReactQueryClientProvider>
           <Header />
           <main className="mt-[72px] md:mt-[80px]">{children}</main>
           <Footer />
           <TopLoader />
           <Toaster richColors position="top-right" />
-        </body>
-      </ReactQueryClientProvider>
+        </ReactQueryClientProvider>
+      </body>
     </html>
   );
 }

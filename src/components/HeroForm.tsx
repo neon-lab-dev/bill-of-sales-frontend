@@ -87,31 +87,40 @@ const HeroForm = ({ states, formNames }: Props) => {
           {/* auto suggest */}
           {isSelectCityOpen && (
             <div className="absolute z-10 shadow-xl top-full left-0 overflow-y-auto py-4 px-2 rounded-b-xl w-full h-fit max-h-[250px] md:max-h-[400px] bg-white flex flex-col gap-2">
-              {states
-                ?.filter((city) => {
-                  if (!selectedCityInputValue) return true;
-                  return city
-                    .toLowerCase()
-                    .includes(selectedCityInputValue.toLowerCase());
-                })
-                .map((city) => (
-                  <button
-                    key={city}
-                    value={city}
-                    onClick={(e) => {
-                      setSelectedCityInputValue(e.currentTarget.value);
-                      setIsSelectCityOpen(false);
-                    }}
-                    className={twMerge(
-                      "w-full py-2 px-6 text-black/85 rounded-md text-left",
-                      city === selectedCityInputValue
-                        ? "bg-gray-700"
-                        : " hover:bg-gray-700"
-                    )}
-                  >
-                    {city}
-                  </button>
-                ))}
+              {states?.filter((city) => {
+                if (!selectedCityInputValue) return true;
+                return city
+                  .toLowerCase()
+                  .includes(selectedCityInputValue.toLowerCase());
+              }).length === 0 ? (
+                <div className="text-center text-black/85">No states found</div>
+              ) : (
+                states
+                  ?.filter((city) => {
+                    if (!selectedCityInputValue) return true;
+                    return city
+                      .toLowerCase()
+                      .includes(selectedCityInputValue.toLowerCase());
+                  })
+                  .map((city) => (
+                    <button
+                      key={city}
+                      value={city}
+                      onClick={(e) => {
+                        setSelectedCityInputValue(e.currentTarget.value);
+                        setIsSelectCityOpen(false);
+                      }}
+                      className={twMerge(
+                        "w-full py-2 px-6 text-black/85 rounded-md text-left",
+                        city === selectedCityInputValue
+                          ? "bg-gray-700"
+                          : " hover:bg-gray-700"
+                      )}
+                    >
+                      {city}
+                    </button>
+                  ))
+              )}
             </div>
           )}
         </div>
@@ -162,33 +171,46 @@ const HeroForm = ({ states, formNames }: Props) => {
           {/* auto suggest */}
           {isSelectBillTypeOpen && (
             <div className="absolute shadow-xl top-full left-0 overflow-y-auto py-4 px-2 rounded-b-xl w-full h-fit max-h-[250px] md:max-h-[400px] bg-white flex flex-col gap-2">
-              {formNames
-                .filter(
-                  (f) =>
-                    f.forms.filter((f) =>
-                      selectedCityInputValue
-                        ? f.stateName === selectedCityInputValue
-                        : true
-                    ).length > 0
-                )
-                .map((f) => (
-                  <button
-                    key={f._id}
-                    value={f._id}
-                    onClick={(e) => {
-                      setSelectedBillTypeInputValue(e.currentTarget.value);
-                      setIsSelectBillTypeOpen(false);
-                    }}
-                    className={twMerge(
-                      "w-full py-2 px-6 text-black/85 rounded-md text-left",
-                      f._id === selectedBillTypeInputValue
-                        ? "bg-gray-700"
-                        : " hover:bg-gray-700"
-                    )}
-                  >
-                    {f.formName}
-                  </button>
-                ))}
+              {formNames.filter(
+                (f) =>
+                  f.forms.filter((f) =>
+                    selectedCityInputValue
+                      ? f.stateName === selectedCityInputValue
+                      : true
+                  ).length > 0
+              ).length === 0 ? (
+                <div className="text-center text-black/85">
+                  No bills found
+                </div>
+              ) : (
+                formNames
+                  .filter(
+                    (f) =>
+                      f.forms.filter((f) =>
+                        selectedCityInputValue
+                          ? f.stateName === selectedCityInputValue
+                          : true
+                      ).length > 0
+                  )
+                  .map((f) => (
+                    <button
+                      key={f._id}
+                      value={f._id}
+                      onClick={(e) => {
+                        setSelectedBillTypeInputValue(e.currentTarget.value);
+                        setIsSelectBillTypeOpen(false);
+                      }}
+                      className={twMerge(
+                        "w-full py-2 px-6 text-black/85 rounded-md text-left",
+                        f._id === selectedBillTypeInputValue
+                          ? "bg-gray-700"
+                          : " hover:bg-gray-700"
+                      )}
+                    >
+                      {f.formName}
+                    </button>
+                  ))
+              )}
             </div>
           )}
         </button>

@@ -28,7 +28,7 @@ export const handleGetAllCommentsByPostId = (
     axios
       .get(`${API_URL.comments}/${postId}`)
       .then((res) => {
-        resolve(res.data ?? []);
+        resolve(res.data?.comment ?? []);
       })
       .catch((err) => {
         reject(err?.response?.data?.message ?? "Failed to get comments");

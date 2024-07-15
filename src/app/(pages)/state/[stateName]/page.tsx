@@ -16,7 +16,7 @@ const TemplateByState = async ({ params: { stateName } }: Props) => {
     <div className="wrapper max-width">
       <div className="py-[31px] flex flex-col gap-5">
         <h2 className="text-gray-500 text-[34px] md:text-[42px] font-500 leading-[120%]">
-          {stateName} of Sale Forms
+          {decodeURI(stateName)} of Sale Forms
         </h2>
 
         {forms?.length === 0 ? (
